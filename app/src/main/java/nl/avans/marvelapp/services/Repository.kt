@@ -3,13 +3,15 @@ package nl.avans.marvelapp.services
 import android.content.Context
 import com.android.volley.Request
 import com.android.volley.Response
-import com.android.volley.toolbox.StringRequest
+import com.android.volley.toolbox.JsonObjectRequest
+import nl.avans.marvelapp.R
 import nl.avans.marvelapp.services.utils.VolleyRequestQueue
+import org.json.JSONObject
 import java.math.BigInteger
 import java.security.MessageDigest
 
 abstract class Repository<T> constructor(private val context: Context, private val genericEndPoint: String) {
-    private val url: String = "https://gateway.marvel.com/v1/public"
+    private val url: String = context.resources.getString(R.string.api_base_url)
 
     fun getAll(callback: (Array<T>) -> Unit) {
         executeRequest { response ->
@@ -17,12 +19,12 @@ abstract class Repository<T> constructor(private val context: Context, private v
         }
     }
 
-    abstract fun convert(json: String): T
-    abstract fun convertArray(json: String): Array<T>
+    abstract fun convert(json: JSONObject): T
+    abstract fun convertArray(json: JSONObject): Array<T>
 
-    private fun executeRequest(endpoint: String = "", callback: Response.Listener<String>) {
+    private fun executeRequest(endpoint: String = "", callback: Response.Listener<JSONObject>) {
         VolleyRequestQueue.getInstance(context).addToRequestQueue(
-            StringRequest(Request.Method.GET, createRequestUrl(endpoint), callback,
+            JsonObjectRequest(Request.Method.GET, createRequestUrl(endpoint), null, callback,
                 {
                     print("oh oh, a error occurred!")
                 }
@@ -35,8 +37,8 @@ abstract class Repository<T> constructor(private val context: Context, private v
         var requestUrl = "$url/$genericEndPoint$endpoint"
 
         // Append authentication
-        val publicKey = "f4e95a9f23f3da74276017816fe6cb8a"
-        val privateKey = "a6250f1ff7da337c2c587cc3db149aabe071560b"
+        val publicKey = context.resources.getString(R.string.api_public_key)
+        val privateKey = context.resources.getString(R.string.api_private_key)
         val timestamp = 1
         val hash = stringToMD5("$timestamp$privateKey$publicKey")
 

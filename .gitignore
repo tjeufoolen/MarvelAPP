@@ -14,5 +14,5 @@
 .cxx
 local.properties
 
-# Remove the api credentials file from git and only store the example variant
+# Remove the api credentials file from git
 app/src/main/res/values/api_credentials.xml

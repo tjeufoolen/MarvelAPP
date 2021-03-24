@@ -14,12 +14,11 @@ class VolleyRequestQueue constructor(context: Context) {
     companion object {
         @Volatile
         private var INSTANCE: VolleyRequestQueue? = null
-        fun getInstance(context: Context) =
-            INSTANCE ?: synchronized(this) {
-                INSTANCE ?: VolleyRequestQueue(context).also {
-                    INSTANCE = it
-                }
+        fun getInstance(context: Context) = INSTANCE ?: synchronized(this) {
+            INSTANCE ?: VolleyRequestQueue(context).also {
+                INSTANCE = it
             }
+        }
     }
     val imageLoader: ImageLoader by lazy {
         ImageLoader(requestQueue,
