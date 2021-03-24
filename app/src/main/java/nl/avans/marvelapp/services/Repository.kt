@@ -5,7 +5,9 @@ import android.util.Log
 import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.toolbox.JsonObjectRequest
+import com.beust.klaxon.Klaxon
 import nl.avans.marvelapp.R
+import nl.avans.marvelapp.models.Character
 import nl.avans.marvelapp.services.utils.VolleyRequestQueue
 import org.json.JSONObject
 import java.math.BigInteger
@@ -14,20 +16,27 @@ import java.security.MessageDigest
 abstract class Repository<T> constructor(private val context: Context, private val genericEndPoint: String) {
     private val url: String = context.resources.getString(R.string.api_base_url)
 
-    fun getAll(callback: (Array<T>) -> Unit) {
+    fun getAll(callback: (List<T>?) -> Unit) {
         executeRequest { response ->
             callback(convertArray(response))
         }
     }
 
-    abstract fun convert(json: JSONObject): T
-    abstract fun convertArray(json: JSONObject): Array<T>
+    fun getById(id: Int, callback: (T?) -> Unit) {
+        executeRequest("/$id") { response ->
+            callback(convert(response))
+        }
+    }
 
+    protected abstract fun convert(json: JSONObject): T?
+    protected abstract fun convertArray(json: JSONObject): List<T>?
+
+    // region Helpers
     private fun executeRequest(endpoint: String = "", callback: Response.Listener<JSONObject>) {
         VolleyRequestQueue.getInstance(context).addToRequestQueue(
             JsonObjectRequest(Request.Method.GET, createRequestUrl(endpoint), null, callback,
                 {
-                    Log.d(Log.ERROR.toString(), "Whoops! Something went wrong while executing the request!")
+                    Log.d(Log.ERROR.toString(), it.message.toString())
                 }
             )
         )
@@ -53,4 +62,5 @@ abstract class Repository<T> constructor(private val context: Context, private v
         val md = MessageDigest.getInstance("MD5")
         return BigInteger(1, md.digest(input.toByteArray())).toString(16).padStart(32, '0')
     }
+    // endregion Helpers
 }

@@ -10,8 +10,16 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        CharacterRepository(this).getAll { array ->
-            findViewById<TextView>(R.id.message).text = array[0].name
+//        CharacterRepository(this).getAll { array ->
+//            if (array != null) {
+//                findViewById<TextView>(R.id.message).text = array[0].thumbnail.url
+//            }
+//        }
+
+        CharacterRepository(this).getById(1011334) { obj ->
+            if (obj != null) {
+                findViewById<TextView>(R.id.message).text = obj.thumbnail.url
+            }
         }
     }
 }
