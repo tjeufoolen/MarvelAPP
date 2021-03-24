@@ -1,6 +1,7 @@
 package nl.avans.marvelapp.services
 
 import android.content.Context
+import android.util.Log
 import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.toolbox.JsonObjectRequest
@@ -26,7 +27,7 @@ abstract class Repository<T> constructor(private val context: Context, private v
         VolleyRequestQueue.getInstance(context).addToRequestQueue(
             JsonObjectRequest(Request.Method.GET, createRequestUrl(endpoint), null, callback,
                 {
-                    print("oh oh, a error occurred!")
+                    Log.d(Log.ERROR.toString(), "Whoops! Something went wrong while executing the request!")
                 }
             )
         )

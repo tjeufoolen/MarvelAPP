@@ -13,7 +13,7 @@ Kotlin android app build for the MBDANDR assessment
 ```
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="api_base_url"></string>
+    <string name="api_base_url">https://gateway.marvel.com:443/v1/public</string>
 
     <!-- Get keys at https://developer.marvel.com/ -->
     <string name="api_public_key"></string>
@@ -21,6 +21,6 @@ Kotlin android app build for the MBDANDR assessment
 </resources>
 ```
 
-###### Authors
+## Authors
 - [Micha Nijenhof](https://github.com/nijenhof)
 - [Tjeu Foolen](https://github.com/tjeufoolen)
