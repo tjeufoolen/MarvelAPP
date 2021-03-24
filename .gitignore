@@ -13,3 +13,6 @@
 .externalNativeBuild
 .cxx
 local.properties
+
+# Remove the api credentials file from git and only store the example variant
+app/src/main/res/values/api_credentials.xml
