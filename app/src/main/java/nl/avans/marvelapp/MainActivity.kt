@@ -8,26 +8,6 @@ import androidx.recyclerview.widget.RecyclerView
 import nl.avans.marvelapp.models.Character
 import nl.avans.marvelapp.services.CharacterRepository
 
-
-//class MainActivity : AppCompatActivity() {
-//    override fun onCreate(savedInstanceState: Bundle?) {
-//        super.onCreate(savedInstanceState)
-//        setContentView(R.layout.activity_main)
-//
-////        CharacterRepository(this).getAll { array ->
-////            if (array != null) {
-////                findViewById<TextView>(R.id.message).text = array[0].thumbnail.url
-////            }
-////        }
-//
-////        CharacterRepository(this).getById(1011334) { obj ->
-////            if (obj != null) {
-////                findViewById<TextView>(R.id.message).text = obj.thumbnail.url
-////            }
-////        }
-//    }
-//}
-
 class MainActivity : AppCompatActivity() {
     lateinit var characterRepository: CharacterRepository
     var recyclerView: RecyclerView? = null
