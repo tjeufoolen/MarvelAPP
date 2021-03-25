@@ -20,8 +20,8 @@ abstract class Repository<T> constructor(private val context: Context, private v
         }
     }
 
-    fun getPaginated(pageOffset: Int, callback: (List<T>?) -> Unit) {
-        executeRequest("", mapOf("offset" to pageOffset.toString())) { response ->
+    fun getPaginated(itemOffset: Int, callback: (List<T>?) -> Unit) {
+        executeRequest("", mapOf("offset" to itemOffset.toString())) { response ->
             callback(convertArray(response))
         }
 
