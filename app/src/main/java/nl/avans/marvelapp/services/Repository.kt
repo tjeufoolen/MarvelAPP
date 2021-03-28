@@ -41,13 +41,16 @@ abstract class Repository<T> constructor(private val context: Context, private v
         VolleyRequestQueue.getInstance(context).addToRequestQueue(
             JsonObjectRequest(Request.Method.GET, createRequestUrl(endpoint, queryParams), null, callback,
                 {
-                    Log.d(Log.ERROR.toString(), it.message.toString())
+                    // Frontend should ignore the fact that a request can go wrong and handle this
+                    // already in its own way. However, we keep logging the error so that we as
+                    // developers, have an easier time debugging a problem.
+                    Log.d("Error", it.message.toString())
                 }
             )
         )
     }
 
-    private fun createRequestUrl(endpoint: String, queryParams: Map<String, String>? = null) : String {
+    private fun createRequestUrl(endpoint: String, queryParams: Map<String, String>? = null): String {
         // Build url
         var requestUrl = "$url/$genericEndPoint$endpoint"
 
@@ -63,9 +66,6 @@ abstract class Repository<T> constructor(private val context: Context, private v
         // Append query string to the request url
         requestUrl += appendQueryString(allQueryParams)
 
-        // Return full url
-        Log.d("DEBUGSTRING", requestUrl)
-
         return requestUrl
     }
 
@@ -74,31 +74,29 @@ abstract class Repository<T> constructor(private val context: Context, private v
         return BigInteger(1, md.digest(input.toByteArray())).toString(16).padStart(32, '0')
     }
 
-    private fun appendQueryString(input: Map<String, String>) : String {
+    private fun appendQueryString(input: Map<String, String>): String {
         if (input.isEmpty()) return ""
 
         var returnString = "?"
         val stringBuilder = StringBuilder()
-        for((key, value) in input){
-            if(stringBuilder.isNotEmpty()){
+        for ((key, value) in input) {
+            if (stringBuilder.isNotEmpty()) {
                 stringBuilder.append("&")
             }
             stringBuilder.append("$key=$value")
         }
-        returnString+=stringBuilder.toString()
+        returnString += stringBuilder.toString()
 
         return returnString
     }
 
-    private fun generateAuthenticationHeaders(): Map<String, String>{
+    private fun generateAuthenticationHeaders(): Map<String, String> {
         val publicKey = context.resources.getString(R.string.api_public_key)
         val privateKey = context.resources.getString(R.string.api_private_key)
         val timestamp = 1
         val hash = stringToMD5("$timestamp$privateKey$publicKey")
 
-        return mapOf(
-            "apikey" to "$publicKey&ts=$timestamp&hash=$hash"
-        )
+        return mapOf("apikey" to "$publicKey&ts=$timestamp&hash=$hash")
     }
     // endregion Helpers
 }

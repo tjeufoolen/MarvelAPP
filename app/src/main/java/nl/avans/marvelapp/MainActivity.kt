@@ -2,6 +2,7 @@ package nl.avans.marvelapp
 
 import android.os.Bundle
 import android.os.Handler
+import android.os.Looper
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -9,9 +10,9 @@ import nl.avans.marvelapp.models.Character
 import nl.avans.marvelapp.services.CharacterRepository
 
 class MainActivity : AppCompatActivity() {
-    lateinit var characterRepository: CharacterRepository
-    var recyclerView: RecyclerView? = null
-    var recyclerViewAdapter: RecyclerViewAdapter? = null
+    private lateinit var characterRepository: CharacterRepository
+    private var recyclerView: RecyclerView? = null
+    private var recyclerViewAdapter: RecyclerViewAdapter? = null
     var rowsArrayList: ArrayList<Character?> = ArrayList()
     var isLoading = false
 
@@ -21,14 +22,14 @@ class MainActivity : AppCompatActivity() {
         recyclerView = findViewById(R.id.recyclerView)
         characterRepository = CharacterRepository(this)
 
-    populateData()
+        populateData()
         initAdapter()
         initScrollListener()
     }
 
     private fun populateData() {
-        characterRepository.getAll { characterlist ->
-            characterlist?.forEach{ character ->
+        characterRepository.getAll { characterList ->
+            characterList?.forEach{ character ->
                 rowsArrayList.add(character)
             }
             recyclerViewAdapter!!.notifyDataSetChanged()
@@ -48,9 +49,9 @@ class MainActivity : AppCompatActivity() {
                 if (!isLoading) {
                     if (linearLayoutManager != null && linearLayoutManager.findLastCompletelyVisibleItemPosition() == rowsArrayList.size - 1) {
                         //bottom of list!
-                        recyclerView.post(Runnable(){
+                        recyclerView.post {
                             loadMore()
-                        })
+                        }
                         isLoading = true
                     }
                 }
@@ -61,14 +62,13 @@ class MainActivity : AppCompatActivity() {
     private fun loadMore() {
         rowsArrayList.add(null)
         recyclerViewAdapter!!.notifyItemInserted(rowsArrayList.size - 1)
-        val handler = Handler()
-        handler.postDelayed(Runnable {
+        Handler(Looper.getMainLooper()).postDelayed({
             rowsArrayList.removeAt(rowsArrayList.size - 1)
             val scrollPosition: Int = rowsArrayList.size
             recyclerViewAdapter!!.notifyItemRemoved(scrollPosition)
 
-            characterRepository.getPaginated(scrollPosition){ newCharacters ->
-                newCharacters?.forEach{ character ->
+            characterRepository.getPaginated(scrollPosition) { newCharacters ->
+                newCharacters?.forEach { character ->
                     rowsArrayList.add(character)
                 }
                 recyclerViewAdapter!!.notifyDataSetChanged()
