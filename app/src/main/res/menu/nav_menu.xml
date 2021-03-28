@@ -4,16 +4,16 @@
     <item
         android:id="@+id/iCharacters"
         android:icon="@drawable/ic_characters"
-        android:title="Characters" />
+        android:title="@string/characters_bottom_nav_text" />
 
     <item
         android:id="@+id/iComics"
         android:icon="@drawable/ic_comics"
-        android:title="Comics"/>
+        android:title="@string/comics_bottom_nav_text"/>
 
     <item
         android:id="@+id/iSettings"
         android:icon="@drawable/ic_settings"
-        android:title="Settings"/>
+        android:title="@string/settings_bottom_nav_text"/>
 
 </menu>
