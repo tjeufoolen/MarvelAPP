@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import nl.avans.marvelapp.fragments.CharactersFragment
 import nl.avans.marvelapp.fragments.ComicsFragment
@@ -37,6 +38,24 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+//    override fun onBackPressed() {
+//        val backstackentrycount = supportFragmentManager.backStackEntryCount
+//
+//        if (supportFragmentManager.backStackEntryCount > 0) {
+//            supportFragmentManager.popBackStack();
+//        } else {
+//            super.onBackPressed();
+//        }
+//    }
+    override fun onBackPressed() {
+        val fm = supportFragmentManager
+        if (onBackPressed(fm)) {
+            return
+        }
+        super.onBackPressed()
+    }
+
+
     private fun setActiveNavigationItemColor(selected: MenuItem) {
         // Clear old
         val view = findViewById<BottomNavigationView>(R.id.bnvNavigationBar)
@@ -53,5 +72,25 @@ class MainActivity : AppCompatActivity() {
             replace(R.id.fl_wrapper, fragment)
             commit()
         }
+    }
+
+    private fun onBackPressed(fm: FragmentManager?): Boolean {
+        if (fm != null) {
+            if (fm.backStackEntryCount > 0) {
+                fm.popBackStack()
+                return true
+            }
+            val fragList: List<Fragment> = fm.fragments
+            if (fragList.isNotEmpty()) {
+                for (frag in fragList) {
+                    if (frag.isVisible) {
+                        if (onBackPressed(frag.childFragmentManager)) {
+                            return true
+                        }
+                    }
+                }
+            }
+        }
+        return false
     }
 }

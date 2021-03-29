@@ -5,4 +5,6 @@
     <string name="characters_bottom_nav_text">Characters</string>
     <string name="comics_bottom_nav_text">Comics</string>
     <string name="settings_bottom_nav_text">Settings</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
