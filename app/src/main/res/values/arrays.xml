@@ -3,12 +3,18 @@
     <string-array name="language_entries">
         <item>English</item>
         <item>Nederlands</item>
+        <item>Français</item>
+        <item>Deutsche</item>
+        <item>Español</item>
         <item>日本語</item>
     </string-array>
 
     <string-array name="language_values">
         <item>en</item>
         <item>nl</item>
+        <item>fr</item>
+        <item>de</item>
+        <item>es</item>
         <item>ja</item>
     </string-array>
 </resources>

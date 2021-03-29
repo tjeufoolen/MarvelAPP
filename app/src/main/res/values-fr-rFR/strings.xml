@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="characters_bottom_nav_text">Personnages</string>
+    <string name="comics_bottom_nav_text">Des bandes dessinées</string>
+    <string name="settings_bottom_nav_text">Paramètres</string>
+    <string name="general_header">Général</string>
+    <string name="language_title">Langue</string>
+</resources>
