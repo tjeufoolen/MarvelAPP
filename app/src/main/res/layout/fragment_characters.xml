@@ -5,13 +5,13 @@
     android:orientation="horizontal">
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fcvCharactersList"
-        android:name="com.example.marvelapp.CharacterListViewFragment"
+        android:name="nl.avans.marvelapp.fragments.character.CharacterListFragment"
         android:layout_width="0px"
         android:layout_height="match_parent"
         android:layout_weight="1" />
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fcvCharacterDetails"
-        android:name="com.example.marvelapp.CharacterDetailDragment"
+        android:name="nl.avans.marvelapp.fragments.character.CharacterDetail"
         android:layout_width="0px"
         android:layout_height="match_parent"
         android:layout_weight="1" />

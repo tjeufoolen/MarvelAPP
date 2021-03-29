@@ -30,17 +30,13 @@ class CharactersFragment : Fragment(), CharacterListFragment.IOnClickListener {
     }
 
     override fun onCharacterSelected(character: Character){
-        val fragment = CharacterDetail()
-        fragment.arguments = bundleOf("character" to character.name)
+        val fragment = CharacterDetail.newInstance(character)
 
         if(resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT){
             childFragmentManager.beginTransaction()
                 .replace(R.id.fmvCharacterContainer, fragment, "characterDetail")
                 .addToBackStack(null)
                 .commit()
-
-            val somethingwithdebugging = childFragmentManager.backStackEntryCount
-
             return
         }
 

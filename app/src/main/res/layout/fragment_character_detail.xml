@@ -5,11 +5,18 @@
     android:layout_height="match_parent"
     tools:context="fragments.character.CharacterDetail">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
-        android:id="@+id/character_detail_name"
+        android:id="@+id/tvCharacterDetailName"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="44dp"
+        android:text="@string/generic_default_text"
+        android:textAlignment="center"
+        android:textSize="30sp" />
 
+    <com.android.volley.toolbox.NetworkImageView
+        android:id="@+id/nivCharacterDetailPhoto"
+        android:adjustViewBounds="true"
+        android:scaleType="fitCenter"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 </FrameLayout>

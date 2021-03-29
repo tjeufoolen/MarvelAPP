@@ -50,7 +50,10 @@ class CharacterListFragment : Fragment() {
         recyclerView = view.findViewById(R.id.rvCharacterList)
         characterRepository = CharacterRepository(view.context)
 
-        populateData()
+        if(rowsArrayList.size == 0){
+            populateData()
+        }
+
         initAdapter()
         initScrollListener()
         addClickListener()
