@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/iCharacters"
+        android:icon="@drawable/ic_characters"
+        android:title="@string/characters_nav_text"/>
+    <item android:id="@+id/iComics"
+        android:icon="@drawable/ic_comics"
+        android:title="@string/comics_nav_text"/>
+
+    <item android:title="@string/general_header">
+        <menu>
+            <item android:id="@+id/iMyAccount"
+                android:icon="@drawable/ic_my_account"
+                android:title="@string/account_nav_text"/>
+            <item android:id="@+id/iSettings"
+                android:icon="@drawable/ic_settings"
+                android:title="@string/settings_nav_text"/>
+        </menu>
+    </item>
+</menu>

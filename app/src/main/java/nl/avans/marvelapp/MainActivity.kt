@@ -4,10 +4,18 @@ import android.content.Context
 import android.content.ContextWrapper
 import android.os.Bundle
 import android.view.MenuItem
+import android.view.View
+import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
+import androidx.core.view.GravityCompat
+import androidx.core.view.get
+import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import androidx.preference.PreferenceManager
+import com.google.android.material.bottomnavigation.BottomNavigationItemView
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.navigation.NavigationView
 import nl.avans.marvelapp.fragments.CharactersFragment
 import nl.avans.marvelapp.fragments.ComicsFragment
 import nl.avans.marvelapp.fragments.SettingsFragment
@@ -21,6 +29,14 @@ class MainActivity : AppCompatActivity() {
         private var currentFragment: Fragment? = null
     }
 
+    private lateinit var drawerLayout: DrawerLayout
+    private lateinit var navigationView: NavigationView
+    private lateinit var bottomNavigationView: BottomNavigationView
+    private lateinit var toolbar: Toolbar
+    private lateinit var charactersFragment: CharactersFragment
+    private lateinit var comicsFragment: ComicsFragment
+    private lateinit var settingsFragment: SettingsFragment
+
     override fun attachBaseContext(newBase: Context?) {
         val localeToSwitchTo = Locale(PreferenceManager.getDefaultSharedPreferences(newBase)
             .getString("language", "en")!!)
@@ -32,32 +48,56 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // Initialize fragments
-        val charactersFragment = CharactersFragment()
-        val comicsFragment = ComicsFragment()
-        val settingsFragment = SettingsFragment()
+        // Initialize instance variables
+        drawerLayout = findViewById(R.id.dlDrawerContainer)
+        navigationView = findViewById(R.id.nvDrawerNavigation)
+        bottomNavigationView = findViewById(R.id.bnvNavigationBar)
+        toolbar = findViewById(R.id.tAppBar)
+        charactersFragment = CharactersFragment()
+        comicsFragment = ComicsFragment()
+        settingsFragment = SettingsFragment()
+
+        // Set custom action bar
+        setSupportActionBar(toolbar)
+
+        // Setup drawer navigation
+        navigationView.bringToFront()
+        val toggle = ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close)
+        drawerLayout.addDrawerListener(toggle)
+        toggle.syncState()
 
         // Set default startup fragment
         if (currentFragment == null) {
             setCurrentFragment(charactersFragment)
         }
 
-        // Handle bottom bar navigation
-        findViewById<BottomNavigationView>(R.id.bnvNavigationBar).setOnNavigationItemSelectedListener {
-            setActiveNavigationItemColor(it)
-
-            when(it.itemId) {
-                R.id.iCharacters -> setCurrentFragment(charactersFragment)
-                R.id.iComics -> setCurrentFragment(comicsFragment)
-                R.id.iSettings -> setCurrentFragment(settingsFragment)
-            }
-
+        // Handle drawer navigation
+        navigationView.setNavigationItemSelectedListener {
+            setCurrentFragment(it)
+            setActiveNavigationItemColor(it, false)
+            drawerLayout.closeDrawer(GravityCompat.START)
             true
+        }
+
+        // Handle bottom bar navigation
+        bottomNavigationView.setOnNavigationItemSelectedListener {
+            setCurrentFragment(it)
+            setActiveNavigationItemColor(it)
+            true
+        }
+    }
+
+    private fun setCurrentFragment(it: MenuItem) {
+        when(it.itemId) {
+            R.id.iCharacters -> setCurrentFragment(charactersFragment)
+            R.id.iComics -> setCurrentFragment(comicsFragment)
+            R.id.iSettings -> setCurrentFragment(settingsFragment)
         }
     }
 
     private fun setCurrentFragment(fragment: Fragment) {
         currentFragment = fragment
+
         supportFragmentManager.beginTransaction().apply {
             replace(R.id.fl_wrapper, fragment)
             commit()
@@ -65,17 +105,33 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun clearNavigationItemsColor() {
-        val view = findViewById<BottomNavigationView>(R.id.bnvNavigationBar)
-        for (i in 0 until view.menu.size()) {
-            view.menu.getItem(i).isChecked = false
+        for (i in 0 until bottomNavigationView.menu.size()) {
+            bottomNavigationView.menu.getItem(i).isChecked = false
         }
     }
 
-    private fun setActiveNavigationItemColor(selected: MenuItem) {
+    private fun setActiveNavigationItemColor(selected: MenuItem, fromBottomNav: Boolean = true) {
         // Clear old
-       clearNavigationItemsColor()
+        clearNavigationItemsColor()
 
         // Set current
-        selected.isChecked = true
+        if (fromBottomNav) {
+            selected.isChecked = true
+        }
+        else {
+            when (currentFragment) {
+                is CharactersFragment -> bottomNavigationView.menu[0].isChecked = true
+                is ComicsFragment ->     bottomNavigationView.menu[1].isChecked = true
+                is SettingsFragment ->   bottomNavigationView.menu[2].isChecked = true
+            }
+        }
+    }
+
+    override fun onBackPressed() {
+        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
+            drawerLayout.closeDrawer(GravityCompat.START)
+        } else {
+            super.onBackPressed()
+        }
     }
 }
