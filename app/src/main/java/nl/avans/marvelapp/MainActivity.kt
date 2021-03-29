@@ -1,15 +1,32 @@
 package nl.avans.marvelapp
 
+import android.content.Context
+import android.content.ContextWrapper
 import android.os.Bundle
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import androidx.preference.PreferenceManager
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import nl.avans.marvelapp.fragments.CharactersFragment
 import nl.avans.marvelapp.fragments.ComicsFragment
 import nl.avans.marvelapp.fragments.SettingsFragment
+import nl.avans.marvelapp.utils.ContextUtils
+import java.util.*
+
 
 class MainActivity : AppCompatActivity() {
+
+    companion object {
+        private var currentFragment: Fragment? = null
+    }
+
+    override fun attachBaseContext(newBase: Context?) {
+        val localeToSwitchTo = Locale(PreferenceManager.getDefaultSharedPreferences(newBase)
+            .getString("language", "en")!!)
+        val localeUpdatedContext: ContextWrapper = ContextUtils.updateLocale(newBase!!, localeToSwitchTo)
+        super.attachBaseContext(localeUpdatedContext)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,7 +38,9 @@ class MainActivity : AppCompatActivity() {
         val settingsFragment = SettingsFragment()
 
         // Set default startup fragment
-        setCurrentFragment(charactersFragment)
+        if (currentFragment == null) {
+            setCurrentFragment(charactersFragment)
+        }
 
         // Handle bottom bar navigation
         findViewById<BottomNavigationView>(R.id.bnvNavigationBar).setOnNavigationItemSelectedListener {
@@ -37,21 +56,26 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun setActiveNavigationItemColor(selected: MenuItem) {
-        // Clear old
-        val view = findViewById<BottomNavigationView>(R.id.bnvNavigationBar)
-        for (i in 0 until view.menu.size()) {
-            view.menu.getItem(i).isChecked = false
-        }
-
-        // Set current
-        selected.isChecked = true
-    }
-
     private fun setCurrentFragment(fragment: Fragment) {
+        currentFragment = fragment
         supportFragmentManager.beginTransaction().apply {
             replace(R.id.fl_wrapper, fragment)
             commit()
         }
+    }
+
+    private fun clearNavigationItemsColor() {
+        val view = findViewById<BottomNavigationView>(R.id.bnvNavigationBar)
+        for (i in 0 until view.menu.size()) {
+            view.menu.getItem(i).isChecked = false
+        }
+    }
+
+    private fun setActiveNavigationItemColor(selected: MenuItem) {
+        // Clear old
+       clearNavigationItemsColor()
+
+        // Set current
+        selected.isChecked = true
     }
 }

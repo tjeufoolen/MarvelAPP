@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="characters_bottom_nav_text">Figuren</string>
+    <string name="comics_bottom_nav_text">Comics</string>
+    <string name="settings_bottom_nav_text">Einstellungen</string>
+    <string name="general_header">Allgemeines</string>
+    <string name="language_title">Sprache</string>
+</resources>
