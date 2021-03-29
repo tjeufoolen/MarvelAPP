@@ -21,10 +21,6 @@ class MainActivity : AppCompatActivity() {
         private var currentFragment: Fragment? = null
     }
 
-    private lateinit var charactersFragment: CharactersFragment
-    private lateinit var comicsFragment: ComicsFragment
-    private lateinit var settingsFragment: SettingsFragment
-
     override fun attachBaseContext(newBase: Context?) {
         val localeToSwitchTo = Locale(PreferenceManager.getDefaultSharedPreferences(newBase)
             .getString("language", "en")!!)
@@ -37,9 +33,9 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         // Initialize fragments
-        charactersFragment = CharactersFragment()
-        comicsFragment = ComicsFragment()
-        settingsFragment = SettingsFragment()
+        val charactersFragment = CharactersFragment()
+        val comicsFragment = ComicsFragment()
+        val settingsFragment = SettingsFragment()
 
         // Set default startup fragment
         if (currentFragment == null) {
