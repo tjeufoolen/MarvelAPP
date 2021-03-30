@@ -24,4 +24,8 @@
     <string name="account_details_updated_notification_text">Los detalles de su cuenta han sido actualizados.</string>
     <string name="extra_header">Extras</string>
     <string name="sensors_nav_text">Sensores</string>
+    <string name="sensors_humidity_header">Humedad</string>
+    <string name="sensors_pressure_header">Presión</string>
+    <string name="sensors_light_header">Ligero</string>
+    <string name="sensors_ambient_temperature_header">Temperatura ambiente</string>
 </resources>

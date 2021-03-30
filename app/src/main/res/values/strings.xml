@@ -3,14 +3,13 @@
     <string name="generic_default_text" translatable="false">default placeholder text</string>
     <string name="validation_not_everything_filled_in">Please fill in all fields before saving</string>
 
-    <!-- Bottom navigation bar -->
+    <!-- Navigation -->
     <string name="characters_nav_text">Characters</string>
     <string name="comics_nav_text">Comics</string>
     <string name="settings_nav_text">Settings</string>
-
-    <!-- Drawer navigation -->
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="sensors_nav_text">Sensors</string>
 
     <!-- Preferences -->
     <string name="general_header">General</string>
@@ -24,6 +23,12 @@
     <string name="manage_account_details_description">Manage your account details</string>
     <string name="open_camera_button_text">Open Camera</string>
     <string name="account_details_updated_notification_text">Your account details have been updated!</string>
+
+    <!-- Sensors -->
+    <string name="sensors_humidity_header">Humidity</string>
+    <string name="sensors_pressure_header">Pressure</string>
+    <string name="sensors_light_header">Light</string>
+    <string name="sensors_ambient_temperature_header">Ambient Temperature</string>
 
     <!-- Input fields -->
     <string name="email_input_hint">Enter your email...</string>
@@ -40,7 +45,4 @@
     <string name="amount_of_pages">Amount of pages</string>
     <string name="extra_header">Extras</string>
     <string name="character_description_unavailable">Character description unavailable</string>
-    <string name="sensors_nav_text">Sensors</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:textAlignment="center"
         android:textSize="30sp"
-        android:text="Sensors"
+        android:text="@string/sensors_nav_text"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="16dp"
         app:layout_constraintTop_toTopOf="parent"/>
@@ -31,7 +31,7 @@
             android:layout_weight="0.50"
             android:layout_height="wrap_content"
             android:textSize="24sp"
-            android:text="Ambient Temperature" />
+            android:text="@string/sensors_ambient_temperature_header" />
 
         <TextView
             android:id="@+id/tvAmbientTemperature"
@@ -59,7 +59,7 @@
             android:layout_weight="0.50"
             android:layout_height="wrap_content"
             android:textSize="24sp"
-            android:text="Light" />
+            android:text="@string/sensors_light_header" />
 
         <TextView
             android:id="@+id/tvLight"
@@ -87,7 +87,7 @@
             android:layout_weight="0.50"
             android:layout_height="wrap_content"
             android:textSize="24sp"
-            android:text="Pressure" />
+            android:text="@string/sensors_pressure_header" />
 
         <TextView
             android:id="@+id/tvPressure"
@@ -115,7 +115,7 @@
             android:layout_weight="0.50"
             android:layout_height="wrap_content"
             android:textSize="24sp"
-            android:text="Humidity" />
+            android:text="@string/sensors_humidity_header" />
 
         <TextView
             android:id="@+id/tvRelativeHumidity"

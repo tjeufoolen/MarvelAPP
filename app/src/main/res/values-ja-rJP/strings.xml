@@ -24,4 +24,8 @@
     <string name="account_details_updated_notification_text">アカウントの詳細が更新されました。</string>
     <string name="extra_header">エキストラ</string>
     <string name="sensors_nav_text">センサー</string>
+    <string name="sensors_humidity_header">湿度</string>
+    <string name="sensors_pressure_header">圧力</string>
+    <string name="sensors_light_header">光</string>
+    <string name="sensors_ambient_temperature_header">周囲温度</string>
 </resources>

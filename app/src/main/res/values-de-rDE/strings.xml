@@ -24,4 +24,8 @@
     <string name="account_details_updated_notification_text">Ihre Kontodaten wurden aktualisiert!</string>
     <string name="extra_header">Extras</string>
     <string name="sensors_nav_text">Sensoren</string>
+    <string name="sensors_humidity_header">Feuchtigkeit</string>
+    <string name="sensors_pressure_header">Druck</string>
+    <string name="sensors_light_header">Licht</string>
+    <string name="sensors_ambient_temperature_header">Umgebungstemperatur</string>
 </resources>
