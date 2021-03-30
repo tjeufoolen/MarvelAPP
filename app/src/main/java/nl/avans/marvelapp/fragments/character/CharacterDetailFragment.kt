@@ -1,15 +1,20 @@
 package nl.avans.marvelapp.fragments.character
 
+import android.content.ActivityNotFoundException
+import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
+import androidx.fragment.app.Fragment
 import com.android.volley.toolbox.NetworkImageView
 import nl.avans.marvelapp.R
 import nl.avans.marvelapp.models.Character
 import nl.avans.marvelapp.repositories.utils.VolleyRequestQueue
+
 
 private const val CHARACTER_ARGUMENT = "character"
 
@@ -23,7 +28,11 @@ class CharacterDetailFragment : Fragment() {
         }
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         return inflater.inflate(R.layout.fragment_character_detail, container, false)
     }
 
@@ -36,6 +45,14 @@ class CharacterDetailFragment : Fragment() {
         view.findViewById<TextView>(R.id.tvCharacterDetailName)?.text = character?.name
         setDescription(character?.description)
         setImage(view)
+        setButton(view)
+    }
+
+    private fun setButton(view: View) {
+        val btn = view.findViewById<Button>(R.id.btnCharacterDetailShare)
+        btn.setOnClickListener {
+            share()
+        }
     }
 
     private fun setImage(view: View) {
@@ -55,6 +72,41 @@ class CharacterDetailFragment : Fragment() {
         }
 
         textView?.text = context?.resources?.getString(R.string.description_unavailable)
+    }
+
+    private fun share(){
+        val intent = Intent(Intent.ACTION_SEND)
+        intent.type = "text/plain"
+        intent.putExtra(Intent.EXTRA_TEXT, generateShareDescription())
+        try {
+            requireActivity().startActivity(intent)
+        } catch (ex: ActivityNotFoundException) {
+            Toast.makeText(context, "No app installed that can share this!", Toast.LENGTH_SHORT)
+                .show()
+        }
+    }
+
+    private fun generateShareDescription() :String{
+        var string = ""
+
+        val shareGreeting = context?.resources?.getString(R.string.share_greeting)
+        val shareMentionDescription = context?.resources?.getString(R.string.share_mention_description)
+        val shareLookAtHim = context?.resources?.getString(R.string.share_look_at_him)
+
+        string += "$shareGreeting\n"
+        string += character?.name
+        string += "\n\n"
+
+        if(!character?.description.isNullOrEmpty()){
+            string += "$shareMentionDescription And here a description:\n"
+            string += character?.description
+            string += "\n\n"
+        }
+
+        string += "$shareLookAtHim\n"
+        string += character?.thumbnail?.url
+
+        return string
     }
 
     companion object{

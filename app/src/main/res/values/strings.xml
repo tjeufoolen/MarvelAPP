@@ -38,4 +38,7 @@
     <string name="EAN" translatable="false">EAN</string>
     <string name="ISBN" translatable="false">ISBN</string>
     <string name="amount_of_pages">Amount of pages</string>
+    <string name="share_greeting">Hey there, look at this awesome new character I found</string>
+    <string name="share_mention_description">And here a description</string>
+    <string name="share_look_at_him">You can take a look at him here:</string>
 </resources>
