@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="characters_bottom_nav_text">Personnages</string>
-    <string name="comics_bottom_nav_text">Des bandes dessinées</string>
-    <string name="settings_bottom_nav_text">Paramètres</string>
+    <string name="characters_nav_text">Personnages</string>
+    <string name="comics_nav_text">Des bandes dessinées</string>
+    <string name="settings_nav_text">Paramètres</string>
     <string name="general_header">Général</string>
     <string name="language_title">Langue</string>
+    <string name="account_nav_text">Compte</string>
+    <string name="navigation_drawer_open">Ouvrir le tiroir de navigation</string>
+    <string name="navigation_drawer_close">" Fermer le panneau de navigation"</string>
 </resources>
