@@ -2,16 +2,12 @@ package nl.avans.marvelapp.fragments
 
 import android.content.res.Configuration
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentActivity
-
 import nl.avans.marvelapp.R
-import nl.avans.marvelapp.fragments.character.CharacterDetail
+import nl.avans.marvelapp.fragments.character.CharacterDetailFragment
 import nl.avans.marvelapp.fragments.character.CharacterListFragment
 import nl.avans.marvelapp.models.Character
 
@@ -30,7 +26,7 @@ class CharactersFragment : Fragment(), CharacterListFragment.IOnClickListener {
     }
 
     override fun onCharacterSelected(character: Character){
-        val fragment = CharacterDetail.newInstance(character)
+        val fragment = CharacterDetailFragment.newInstance(character)
 
         if(resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT){
             childFragmentManager.beginTransaction()

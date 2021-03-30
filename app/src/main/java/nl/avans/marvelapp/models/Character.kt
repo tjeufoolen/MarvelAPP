@@ -1,6 +1,7 @@
 package nl.avans.marvelapp.models
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
+import nl.avans.marvelapp.fragments.interfaces.IRowObject
 
 @Parcelize
 data class Character(
@@ -9,7 +10,7 @@ data class Character(
     val description: String,
     val thumbnail: CharacterThumbnail,
     val urls: List<CharacterUrl>
-) : Parcelable {
+) : Parcelable, IRowObject {
 
     @Parcelize
     data class CharacterThumbnail(
@@ -25,6 +26,10 @@ data class Character(
         val type: String,
         val url: String
     ) : Parcelable
+
+    override fun getRowTitle(): String {
+        return name
+    }
 }
 
 
