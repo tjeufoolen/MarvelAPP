@@ -9,7 +9,10 @@ data class Comic(
     val id: Int,
     val title: String,
     val thumbnail: ComicThumbnail,
-    val description: String?
+    val description: String?,
+    val isbn: String?,
+    val ean: String?,
+    val pageCount: Int?,
 ) : Parcelable, IRowObject {
 
     @Parcelize

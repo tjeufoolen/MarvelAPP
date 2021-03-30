@@ -9,4 +9,5 @@
     <string name="navigation_drawer_open">Open de navigatielade</string>
     <string name="navigation_drawer_close">Sluit de navigatielade</string>
     <string name="description_unavailable">Beschrijving niet beschikbaar</string>
+    <string name="amount_of_pages">Aantal pagina\'s</string>
 </resources>

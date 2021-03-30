@@ -10,6 +10,7 @@ import com.android.volley.toolbox.NetworkImageView
 import nl.avans.marvelapp.R
 import nl.avans.marvelapp.models.Comic
 import nl.avans.marvelapp.repositories.utils.VolleyRequestQueue
+import org.w3c.dom.Text
 
 private const val COMIC_ARGUMENT = "comic"
 
@@ -38,6 +39,9 @@ class ComicDetailFragment : Fragment() {
 
     private fun setFields(view: View){
         view.findViewById<TextView>(R.id.tvComicDetailName)?.text = comic?.title
+        view.findViewById<TextView>(R.id.tvComicDetailEanValue)?.text = comic?.ean
+        view.findViewById<TextView>(R.id.tvComicDetailIsbnValue)?.text = comic?.ean
+        view.findViewById<TextView>(R.id.tvComicDetailPagesValue)?.text = comic?.pageCount?.toString()
         setDescription(comic?.description)
         setImage(view)
     }
