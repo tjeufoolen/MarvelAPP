@@ -10,7 +10,6 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import nl.avans.marvelapp.R
-import nl.avans.marvelapp.RecyclerViewAdapter
 import nl.avans.marvelapp.models.Character
 import nl.avans.marvelapp.repositories.CharacterRepository
 
@@ -24,7 +23,7 @@ class CharacterListFragment : Fragment() {
     private lateinit var characterRepository: CharacterRepository
     private lateinit var recyclerView: RecyclerView
 
-    private var recyclerViewAdapter: RecyclerViewAdapter? = null
+    private var recyclerViewAdapter: CharacterListAdapter? = null
     var rowsArrayList: ArrayList<Character?> = ArrayList()
     var isLoading = false
 
@@ -48,7 +47,7 @@ class CharacterListFragment : Fragment() {
         recyclerView = view.findViewById(R.id.rvCharacterList)
         characterRepository = CharacterRepository(view.context)
 
-        if(rowsArrayList.size == 0){
+        if(rowsArrayList.isEmpty()){
             populateData()
         }
 
@@ -71,7 +70,7 @@ class CharacterListFragment : Fragment() {
     }
 
     private fun initAdapter() {
-        recyclerViewAdapter = RecyclerViewAdapter(rowsArrayList)
+        recyclerViewAdapter = CharacterListAdapter(rowsArrayList)
         recyclerView.adapter = recyclerViewAdapter
     }
 
