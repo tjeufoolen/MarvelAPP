@@ -1,22 +1,15 @@
 package nl.avans.marvelapp.fragments.character
 
-import android.graphics.Bitmap
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import androidx.recyclerview.widget.RecyclerView
-import com.android.volley.VolleyError
-import com.android.volley.toolbox.ImageLoader
 import com.android.volley.toolbox.NetworkImageView
 import nl.avans.marvelapp.R
 import nl.avans.marvelapp.models.Character
-import nl.avans.marvelapp.services.utils.VolleyRequestQueue
-import java.util.*
-import kotlin.concurrent.schedule
+import nl.avans.marvelapp.repositories.utils.VolleyRequestQueue
 
 private const val CHARACTER_ARGUMENT = "character"
 
@@ -31,16 +24,17 @@ class CharacterDetail : Fragment() {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val view: View = inflater.inflate(R.layout.fragment_character_detail, container, false)
-        setFields(view)
+        return inflater.inflate(R.layout.fragment_character_detail, container, false)
+    }
 
-        // Inflate the layout for this fragment
-        return view
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        setFields(view)
     }
 
     private fun setFields(view: View){
         view.findViewById<TextView>(R.id.tvCharacterDetailName)?.text = character?.name
-        view.findViewById<TextView>(R.id.tvCharacterDetailDescription)?.text = character?.description
+        setDescription(character?.description)
         setImage(view)
     }
 
@@ -50,7 +44,17 @@ class CharacterDetail : Fragment() {
         val imgLoader = VolleyRequestQueue.getInstance(view.context).imageLoader
         photoView.setDefaultImageResId(R.drawable.ic_characters_black)
         photoView.setErrorImageResId(R.drawable.ic_characters_black)
-        photoView.setImageUrl(character?.thumbnail?.url, imgLoader)
+        photoView.setImageUrl(imgUrl, imgLoader)
+    }
+    private fun setDescription(description: String?){
+        val textView = view?.findViewById<TextView>(R.id.tvCharacterDetailDescription)
+
+        if(description != null && description.isNotEmpty()){
+            textView?.text = description
+            return
+        }
+
+        textView?.text = context?.resources?.getString(R.string.character_description_unavailable)
     }
 
     companion object{

@@ -11,10 +11,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import nl.avans.marvelapp.R
 import nl.avans.marvelapp.RecyclerViewAdapter
-import nl.avans.marvelapp.fragments.CharactersFragment
 import nl.avans.marvelapp.models.Character
-import nl.avans.marvelapp.services.CharacterRepository
-import java.io.InvalidClassException
+import nl.avans.marvelapp.repositories.CharacterRepository
 
 class CharacterListFragment : Fragment() {
 

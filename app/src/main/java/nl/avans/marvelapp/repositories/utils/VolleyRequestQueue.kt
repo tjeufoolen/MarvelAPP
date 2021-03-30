@@ -1,8 +1,7 @@
-package nl.avans.marvelapp.services.utils
+package nl.avans.marvelapp.repositories.utils
 
 import android.content.Context
 import android.graphics.Bitmap
-import android.util.Log
 import android.util.LruCache
 import com.android.volley.Request
 import com.android.volley.RequestQueue
