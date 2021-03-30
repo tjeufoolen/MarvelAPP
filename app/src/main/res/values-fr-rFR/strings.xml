@@ -8,4 +8,5 @@
     <string name="account_nav_text">Compte</string>
     <string name="navigation_drawer_open">Ouvrir le tiroir de navigation</string>
     <string name="navigation_drawer_close">" Fermer le panneau de navigation"</string>
+    <string name="character_description_unavailable">La description n\'est pas disponible</string>
 </resources>

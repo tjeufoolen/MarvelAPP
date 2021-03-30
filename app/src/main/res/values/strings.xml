@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name" translatable="false">MarvelAPP</string>
 
+    <string name="generic_default_text" translatable="false">default placeholder text</string>
+
     <!-- Bottom navigation bar -->
     <string name="characters_nav_text">Characters</string>
     <string name="comics_nav_text">Comics</string>
@@ -14,4 +16,7 @@
     <string name="general_header">General</string>
     <string name="language_title">Language</string>
     <string name="account_nav_text">Account</string>
+
+    <!-- Character Details -->
+    <string name="character_description_unavailable">Description Unavailable</string>
 </resources>
