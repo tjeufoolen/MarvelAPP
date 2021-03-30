@@ -17,4 +17,5 @@
     <string name="select_account_profile_picture_button_text">画像を選択</string>
     <string name="update_account_details_button_text">詳細を更新</string>
     <string name="character_description_unavailable">説明はありません</string>
+    <string name="open_camera_button_text">オープンカメラ</string>
 </resources>

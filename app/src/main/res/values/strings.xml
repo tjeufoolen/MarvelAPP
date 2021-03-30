@@ -21,6 +21,7 @@
     <string name="select_account_profile_picture_button_text">Select image</string>
     <string name="account_profile_picture_header">Profile picture</string>
     <string name="manage_account_details_description">Manage your account details</string>
+    <string name="open_camera_button_text">Open Camera</string>
 
     <!-- Input fields -->
     <string name="email_input_hint">Enter your email...</string>

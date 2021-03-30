@@ -7,12 +7,14 @@ import android.graphics.Bitmap
 import android.graphics.ImageDecoder
 import android.os.Bundle
 import android.provider.MediaStore
+import android.provider.MediaStore.ACTION_IMAGE_CAPTURE
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
+import android.widget.Toast
 import androidx.core.graphics.decodeBitmap
 import androidx.core.graphics.drawable.toBitmap
 import androidx.fragment.app.Fragment
@@ -24,11 +26,13 @@ import java.io.IOException
 class AccountFragment : Fragment() {
 
     private val SELECT_IMAGE_REQUEST_CODE: Int = 1
+    private val CAPTURE_IMAGE_REQUEST_CODE: Int = 2
 
     private lateinit var nameInput: EditText
     private lateinit var emailInput: EditText
     private lateinit var imageView: ImageView
     private lateinit var selectImageButton: Button
+    private lateinit var openCameraButton: Button
     private lateinit var updateDetailsButton: Button
 
     private var notificationChannelData = NotificationService.ChannelData(
@@ -53,6 +57,7 @@ class AccountFragment : Fragment() {
         emailInput = view.findViewById(R.id.etEmail)
         imageView = view.findViewById(R.id.ivProfilePicture)
         selectImageButton = view.findViewById(R.id.bSelectImage)
+        openCameraButton = view.findViewById(R.id.bOpenCamera)
         updateDetailsButton = view.findViewById(R.id.bUpdateDetails)
 
         // Initialize account details
@@ -60,6 +65,7 @@ class AccountFragment : Fragment() {
 
         // Handle click events
         selectImageButton.setOnClickListener { onSelectImage() }
+        openCameraButton.setOnClickListener { onOpenCamera() }
         updateDetailsButton.setOnClickListener { onUpdateDetails(view) }
     }
 
@@ -70,26 +76,40 @@ class AccountFragment : Fragment() {
     }
 
     private fun onSelectImage() {
-        val pickImage = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
-        startActivityForResult(pickImage, SELECT_IMAGE_REQUEST_CODE)
+        val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
+        startActivityForResult(intent, SELECT_IMAGE_REQUEST_CODE)
+    }
+
+    private fun onOpenCamera() {
+        val intent = Intent(ACTION_IMAGE_CAPTURE)
+        startActivityForResult(intent, CAPTURE_IMAGE_REQUEST_CODE)
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
-        if (requestCode == SELECT_IMAGE_REQUEST_CODE && resultCode == RESULT_OK) {
-            val uri = data?.data
-            try {
-                updateImageView(
-                    ImageDecoder.decodeBitmap(
-                        ImageDecoder.createSource(
-                            requireActivity().contentResolver,
-                            uri!!
+        if (resultCode == RESULT_OK && data != null) {
+            when (requestCode) {
+                SELECT_IMAGE_REQUEST_CODE -> {
+                    val uri = data.data
+                    try {
+                        updateImageView(
+                            ImageDecoder.decodeBitmap(
+                                ImageDecoder.createSource(
+                                    requireActivity().contentResolver,
+                                    uri!!
+                                )
+                            )
                         )
-                    )
-                )
-            } catch(e: IOException) {
-                e.printStackTrace()
+                    } catch(e: IOException) {
+                        e.printStackTrace()
+                    }
+                }
+                CAPTURE_IMAGE_REQUEST_CODE -> {
+                    val bundle = data.extras
+                    val image = bundle?.get("data") as Bitmap
+                    updateImageView(image)
+                }
             }
         }
     }
@@ -99,10 +119,20 @@ class AccountFragment : Fragment() {
     }
 
     private fun onUpdateDetails(view: View) {
+        val name = nameInput.text.toString()
+        val email = emailInput.text.toString()
+        val image = imageView.drawable.toBitmap()
+
+        // Validate if all data has been filled in
+        if (name.trim().isEmpty() || email.trim().isEmpty()) {
+            Toast.makeText(view.context, "Please fill in all fields before updating", Toast.LENGTH_SHORT).show()
+            return
+        }
+
         // Change account details
-        MainActivity.account?.name = nameInput.text.toString()
-        MainActivity.account?.email = emailInput.text.toString()
-        MainActivity.account?.image = imageView.drawable.toBitmap()
+        MainActivity.account?.name = name
+        MainActivity.account?.email = email
+        MainActivity.account?.image = image
 
         // Update views
         val activity: MainActivity = requireContext() as MainActivity

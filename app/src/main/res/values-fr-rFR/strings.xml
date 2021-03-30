@@ -17,4 +17,5 @@
     <string name="select_account_profile_picture_button_text">Sélectionnez une image</string>
     <string name="update_account_details_button_text">Mettre à jour les détails</string>
     <string name="character_description_unavailable">La description n\'est pas disponible</string>
+    <string name="open_camera_button_text">Ouvrir la caméra</string>
 </resources>
