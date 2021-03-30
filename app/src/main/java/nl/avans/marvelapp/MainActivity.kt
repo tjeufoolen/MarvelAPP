@@ -3,7 +3,6 @@ package nl.avans.marvelapp
 import android.content.Context
 import android.content.ContextWrapper
 import android.os.Bundle
-import androidx.preference.PreferenceManager
 import android.view.MenuItem
 import android.widget.ImageView
 import android.widget.TextView

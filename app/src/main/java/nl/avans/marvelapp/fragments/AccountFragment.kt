@@ -1,5 +1,6 @@
 package nl.avans.marvelapp.fragments
 
+import android.app.Notification
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -14,6 +15,9 @@ import nl.avans.marvelapp.services.NotificationService
 
 class AccountFragment : Fragment() {
 
+    private lateinit var notificationChannelData: NotificationService.ChannelData
+    private var notificationId: Int = -1
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -24,6 +28,12 @@ class AccountFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        // Initialize instance variables
+        notificationChannelData = NotificationService.ChannelData(
+            "account-update-details",
+            "Managing account details"
+        )
 
         // Initialize account details
         initializeAccountDetails(view)
@@ -65,7 +75,23 @@ class AccountFragment : Fragment() {
         activity.updateAccountInformation()
 
         // Send confirmation notification
+        sendNotification(view)
+    }
 
+    private fun sendNotification(view: View) {
+        val notification = NotificationService.build(view.context, NotificationService.NotificationData(
+            notificationChannelData,
+            "[MarvelAPP] Account",
+            "Your account details have been updated!",
+            R.drawable.ic_baseline_notifications_24,
+            R.drawable.ic_launcher_background
+        ))
+
+        if (notificationId == -1) {
+            notificationId = NotificationService.send(view.context, notificationChannelData, notification)
+        } else {
+            NotificationService.update(notificationId, view.context, notificationChannelData, notification)
+        }
     }
 
 }
