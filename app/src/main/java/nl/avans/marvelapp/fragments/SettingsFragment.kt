@@ -35,8 +35,8 @@ class SettingsFragment : PreferenceFragmentCompat(), SharedPreferences.OnSharedP
     }
 
     private fun recreateActivity() {
-        val myActivity: MainActivity = requireContext() as MainActivity
-        myActivity.recreate()
+        val activity: MainActivity = requireContext() as MainActivity
+        activity.recreate()
     }
     //endregion Helpers
 

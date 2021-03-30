@@ -4,6 +4,8 @@ import android.content.Context
 import android.content.ContextWrapper
 import android.os.Bundle
 import android.view.MenuItem
+import android.widget.ImageView
+import android.widget.TextView
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
@@ -18,6 +20,7 @@ import nl.avans.marvelapp.fragments.AccountFragment
 import nl.avans.marvelapp.fragments.CharactersFragment
 import nl.avans.marvelapp.fragments.ComicsFragment
 import nl.avans.marvelapp.fragments.SettingsFragment
+import nl.avans.marvelapp.models.Account
 import nl.avans.marvelapp.utils.ContextUtils
 import java.util.*
 
@@ -25,6 +28,8 @@ import java.util.*
 class MainActivity : AppCompatActivity() {
 
     companion object {
+        var account: Account? = null
+
         private var currentFragment: Fragment? = null
     }
 
@@ -61,11 +66,13 @@ class MainActivity : AppCompatActivity() {
         // Set custom action bar
         setSupportActionBar(toolbar)
 
+        // Set default account (placeholder)
+        if (account == null) {
+            account = Account(1, "Avans Gebruiker", "info@avans.nl")
+        }
+
         // Setup drawer navigation
-        navigationView.bringToFront()
-        val toggle = ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close)
-        drawerLayout.addDrawerListener(toggle)
-        toggle.syncState()
+        setupDrawerNavigation()
 
         // Set default startup fragment
         if (currentFragment == null) {
@@ -86,6 +93,31 @@ class MainActivity : AppCompatActivity() {
             setActiveNavigationItemColor(it)
             true
         }
+    }
+
+    fun updateAccountInformation() {
+        val container = navigationView.getHeaderView(0)
+
+        if (account != null) {
+            val picture = container.findViewById<ImageView>(R.id.ivHeaderProfilePicture)
+            val name = container.findViewById<TextView>(R.id.tvHeaderAccountName)
+            val email = container.findViewById<TextView>(R.id.tvHeaderAccountEmail)
+
+            name.text = account?.name
+            email.text = account?.email
+        }
+    }
+
+    private fun setupDrawerNavigation() {
+        navigationView.bringToFront()
+
+        // Add click listener
+        val toggle = ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close)
+        drawerLayout.addDrawerListener(toggle)
+        toggle.syncState()
+
+        // Init account information
+        updateAccountInformation()
     }
 
     private fun setCurrentFragment(it: MenuItem) {
