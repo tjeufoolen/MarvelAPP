@@ -22,4 +22,6 @@
     <string name="open_camera_button_text">Kamera öffnen</string>
     <string name="validation_not_everything_filled_in">Bitte füllen Sie vor dem Speichern alle Felder aus</string>
     <string name="account_details_updated_notification_text">Ihre Kontodaten wurden aktualisiert!</string>
+    <string name="extra_header">Extras</string>
+    <string name="sensors_nav_text">Sensoren</string>
 </resources>
