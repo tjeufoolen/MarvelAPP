@@ -118,12 +118,10 @@ class MainActivity : AppCompatActivity() {
         if (fromBottomNav) {
             selected.isChecked = true
         }
-        else {
-            when (currentFragment) {
-                is CharactersFragment -> bottomNavigationView.menu[0].isChecked = true
-                is ComicsFragment ->     bottomNavigationView.menu[1].isChecked = true
-                is SettingsFragment ->   bottomNavigationView.menu[2].isChecked = true
-            }
+        else when (currentFragment) {
+            is CharactersFragment -> bottomNavigationView.menu[0].isChecked = true
+            is ComicsFragment ->     bottomNavigationView.menu[1].isChecked = true
+            is SettingsFragment ->   bottomNavigationView.menu[2].isChecked = true
         }
     }
 
