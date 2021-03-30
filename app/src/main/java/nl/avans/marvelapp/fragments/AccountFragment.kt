@@ -31,7 +31,10 @@ class AccountFragment : Fragment() {
     private lateinit var selectImageButton: Button
     private lateinit var updateDetailsButton: Button
 
-    private lateinit var notificationChannelData: NotificationService.ChannelData
+    private var notificationChannelData = NotificationService.ChannelData(
+        "account-update-details",
+        "Managing account details"
+    )
     private var notificationId: Int = -1
 
     override fun onCreateView(
@@ -51,11 +54,6 @@ class AccountFragment : Fragment() {
         imageView = view.findViewById(R.id.ivProfilePicture)
         selectImageButton = view.findViewById(R.id.bSelectImage)
         updateDetailsButton = view.findViewById(R.id.bUpdateDetails)
-
-        notificationChannelData = NotificationService.ChannelData(
-            "account-update-details",
-            "Managing account details"
-        )
 
         // Initialize account details
         initializeAccountDetails()
