@@ -14,7 +14,7 @@ import nl.avans.marvelapp.R
 import nl.avans.marvelapp.fragments.character.CharacterDetail
 import nl.avans.marvelapp.fragments.character.CharacterListFragment
 import nl.avans.marvelapp.models.Character
-
+import nl.avans.marvelapp.repositories.CharacterRepository
 
 class CharactersFragment : Fragment(), CharacterListFragment.IOnClickListener {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {

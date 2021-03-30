@@ -10,6 +10,7 @@ import android.widget.ImageView
 import androidx.fragment.app.Fragment
 import nl.avans.marvelapp.MainActivity
 import nl.avans.marvelapp.R
+import nl.avans.marvelapp.services.NotificationService
 
 class AccountFragment : Fragment() {
 
@@ -55,11 +56,16 @@ class AccountFragment : Fragment() {
         val newName = view.findViewById<EditText>(R.id.etName).text.toString()
         val newEmail = view.findViewById<EditText>(R.id.etEmail).text.toString()
 
+        // Change account details
         MainActivity.account?.name = newName
         MainActivity.account?.email = newEmail
 
+        // Update views
         val activity: MainActivity = requireContext() as MainActivity
         activity.updateAccountInformation()
+
+        // Send confirmation notification
+
     }
 
 }
