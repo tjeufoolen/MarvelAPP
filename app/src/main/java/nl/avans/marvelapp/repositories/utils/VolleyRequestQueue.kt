@@ -1,4 +1,4 @@
-package nl.avans.marvelapp.services.utils
+package nl.avans.marvelapp.repositories.utils
 
 import android.content.Context
 import android.graphics.Bitmap
@@ -21,16 +21,20 @@ class VolleyRequestQueue constructor(context: Context) {
         }
     }
     val imageLoader: ImageLoader by lazy {
-        ImageLoader(requestQueue,
-            object : ImageLoader.ImageCache {
-                private val cache = LruCache<String, Bitmap>(20)
-                override fun getBitmap(url: String): Bitmap {
-                    return cache.get(url)
+        ImageLoader(requestQueue, object : ImageLoader.ImageCache {
+            private val cache = LruCache<String, Bitmap>(20)
+            override fun getBitmap(url: String): Bitmap? {
+                val cachedContent = cache.get(url)
+
+                if(cachedContent!=null){
+                    return cachedContent
                 }
-                override fun putBitmap(url: String, bitmap: Bitmap) {
-                    cache.put(url, bitmap)
-                }
-            })
+                return null
+            }
+            override fun putBitmap(url: String, bitmap: Bitmap) {
+                cache.put(url, bitmap)
+            }
+        })
     }
     val requestQueue: RequestQueue by lazy {
         // applicationContext is key, it keeps you from leaking the

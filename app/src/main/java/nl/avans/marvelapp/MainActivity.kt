@@ -3,6 +3,7 @@ package nl.avans.marvelapp
 import android.content.Context
 import android.content.ContextWrapper
 import android.os.Bundle
+import androidx.preference.PreferenceManager
 import android.view.MenuItem
 import android.widget.ImageView
 import android.widget.TextView
@@ -14,6 +15,7 @@ import androidx.core.view.get
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import androidx.preference.PreferenceManager
+import androidx.fragment.app.FragmentManager
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationView
 import nl.avans.marvelapp.fragments.AccountFragment
@@ -23,7 +25,6 @@ import nl.avans.marvelapp.fragments.SettingsFragment
 import nl.avans.marvelapp.models.Account
 import nl.avans.marvelapp.utils.ContextUtils
 import java.util.*
-
 
 class MainActivity : AppCompatActivity() {
 
@@ -43,7 +44,8 @@ class MainActivity : AppCompatActivity() {
     private lateinit var accountFragment: AccountFragment
 
     override fun attachBaseContext(newBase: Context?) {
-        val localeToSwitchTo = Locale(PreferenceManager.getDefaultSharedPreferences(newBase)
+        val localeToSwitchTo = Locale(
+            PreferenceManager.getDefaultSharedPreferences(newBase)
             .getString("language", "en")!!)
         val localeUpdatedContext: ContextWrapper = ContextUtils.updateLocale(newBase!!, localeToSwitchTo)
         super.attachBaseContext(localeUpdatedContext)
@@ -138,6 +140,26 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    private fun onBackPressed(fm: FragmentManager?): Boolean {
+        if (fm != null) {
+            if (fm.backStackEntryCount > 0) {
+                fm.popBackStack()
+                return true
+            }
+            val fragList: List<Fragment> = fm.fragments
+            if (fragList.isNotEmpty()) {
+                for (frag in fragList) {
+                    if (frag.isVisible) {
+                        if (onBackPressed(frag.childFragmentManager)) {
+                            return true
+                        }
+                    }
+                }
+            }
+        }
+        return false
+    }
+    
     private fun clearNavigationItemsColor() {
         for (i in 0 until bottomNavigationView.menu.size()) {
             bottomNavigationView.menu.getItem(i).isChecked = false
@@ -166,6 +188,10 @@ class MainActivity : AppCompatActivity() {
         if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
             drawerLayout.closeDrawer(GravityCompat.START)
         } else {
+            val fm = supportFragmentManager
+            if (onBackPressed(fm)) {
+                return
+            }
             super.onBackPressed()
         }
     }

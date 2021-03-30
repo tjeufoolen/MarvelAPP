@@ -1,4 +1,5 @@
-package nl.avans.marvelapp
+package nl.avans.marvelapp.fragments.character
+
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import nl.avans.marvelapp.R
 import nl.avans.marvelapp.models.Character
 
-class RecyclerViewAdapter(private var characterList: List<Character?>?) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class CharacterListAdapter(private var characterList: List<Character?>?) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     private val VIEW_TYPE_ITEM = 0
     private val VIEW_TYPE_LOADING = 1
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {

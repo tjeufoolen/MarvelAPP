@@ -16,4 +16,5 @@
     <string name="account_profile_picture_header">Profiel foto</string>
     <string name="select_account_profile_picture_button_text">Selecteer afbeelding</string>
     <string name="update_account_details_button_text">Update details</string>
+    <string name="character_description_unavailable">Beschrijving niet beschikbaar</string>
 </resources>

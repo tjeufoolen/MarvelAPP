@@ -1,12 +1,13 @@
-package nl.avans.marvelapp.services
+package nl.avans.marvelapp.repositories
 
 import android.content.Context
 import android.util.Log
+import com.android.volley.DefaultRetryPolicy
 import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.toolbox.JsonObjectRequest
 import nl.avans.marvelapp.R
-import nl.avans.marvelapp.services.utils.VolleyRequestQueue
+import nl.avans.marvelapp.repositories.utils.VolleyRequestQueue
 import org.json.JSONObject
 import java.math.BigInteger
 import java.security.MessageDigest
@@ -46,7 +47,7 @@ abstract class Repository<T> constructor(private val context: Context, private v
                     // developers, have an easier time debugging a problem.
                     Log.d("Error", it.message.toString())
                 }
-            )
+            ).setRetryPolicy(DefaultRetryPolicy(50000, 5, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT))
         )
     }
 
@@ -65,7 +66,6 @@ abstract class Repository<T> constructor(private val context: Context, private v
 
         // Append query string to the request url
         requestUrl += appendQueryString(allQueryParams)
-
         return requestUrl
     }
 

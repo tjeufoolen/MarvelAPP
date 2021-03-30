@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name" translatable="false">MarvelAPP</string>
+    <string name="generic_default_text" translatable="false">default placeholder text</string>
 
     <!-- Bottom navigation bar -->
     <string name="characters_nav_text">Characters</string>
@@ -26,4 +27,7 @@
     <string name="email_header">E-mailadress</string>
     <string name="name_input_hint">Enter your name...</string>
     <string name="name_header">Name</string>
+
+    <!-- Character Details -->
+    <string name="character_description_unavailable">Description Unavailable</string>
 </resources>
