@@ -1,7 +1,6 @@
 package nl.avans.marvelapp.fragments
 
 import android.app.Activity.RESULT_OK
-import android.app.Notification
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.ImageDecoder
@@ -15,7 +14,6 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.Toast
-import androidx.core.graphics.decodeBitmap
 import androidx.core.graphics.drawable.toBitmap
 import androidx.fragment.app.Fragment
 import nl.avans.marvelapp.MainActivity
@@ -125,7 +123,7 @@ class AccountFragment : Fragment() {
 
         // Validate if all data has been filled in
         if (name.trim().isEmpty() || email.trim().isEmpty()) {
-            Toast.makeText(view.context, "Please fill in all fields before updating", Toast.LENGTH_SHORT).show()
+            Toast.makeText(view.context, resources.getString(R.string.validation_not_everything_filled_in), Toast.LENGTH_SHORT).show()
             return
         }
 
@@ -146,7 +144,7 @@ class AccountFragment : Fragment() {
         val notification = NotificationService.build(view.context, NotificationService.NotificationData(
             notificationChannelData,
             "[MarvelAPP] Account",
-            "Your account details have been updated!",
+            resources.getString(R.string.account_details_updated_notification_text),
             R.drawable.ic_baseline_notifications_24,
             R.drawable.ic_launcher_background
         ))

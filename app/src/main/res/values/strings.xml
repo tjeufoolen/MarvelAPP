@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name" translatable="false">MarvelAPP</string>
     <string name="generic_default_text" translatable="false">default placeholder text</string>
+    <string name="validation_not_everything_filled_in">Please fill in all fields before saving</string>
 
     <!-- Bottom navigation bar -->
     <string name="characters_nav_text">Characters</string>
@@ -22,6 +23,7 @@
     <string name="account_profile_picture_header">Profile picture</string>
     <string name="manage_account_details_description">Manage your account details</string>
     <string name="open_camera_button_text">Open Camera</string>
+    <string name="account_details_updated_notification_text">Your account details have been updated!</string>
 
     <!-- Input fields -->
     <string name="email_input_hint">Enter your email...</string>

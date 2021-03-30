@@ -18,4 +18,6 @@
     <string name="update_account_details_button_text">詳細を更新</string>
     <string name="character_description_unavailable">説明はありません</string>
     <string name="open_camera_button_text">オープンカメラ</string>
+    <string name="validation_not_everything_filled_in">保存する前にすべてのフィールドに入力してください</string>
+    <string name="account_details_updated_notification_text">アカウントの詳細が更新されました。</string>
 </resources>

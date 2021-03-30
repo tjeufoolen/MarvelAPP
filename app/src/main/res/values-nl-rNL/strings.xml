@@ -18,4 +18,6 @@
     <string name="update_account_details_button_text">Update details</string>
     <string name="character_description_unavailable">Beschrijving niet beschikbaar</string>
     <string name="open_camera_button_text">Open Camera</string>
+    <string name="validation_not_everything_filled_in">Gelieve alle velden in te vullen voordat u opslaat</string>
+    <string name="account_details_updated_notification_text">Uw accountgegevens zijn bijgewerkt!</string>
 </resources>
