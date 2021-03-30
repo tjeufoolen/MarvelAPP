@@ -23,9 +23,7 @@ import java.io.IOException
 
 class AccountFragment : Fragment() {
 
-    companion object {
-        private const val SELECT_IMAGE_REQUEST_CODE: Int = 1
-    }
+    private val SELECT_IMAGE_REQUEST_CODE: Int = 1
 
     private lateinit var notificationChannelData: NotificationService.ChannelData
     private var notificationId: Int = -1
