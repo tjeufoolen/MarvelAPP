@@ -7,6 +7,9 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import nl.avans.marvelapp.fragments.interfaces.IRowObject
 
+/*
+ * source: https://www.journaldev.com/24041/android-recyclerview-load-more-endless-scrolling
+ */
 abstract class RecyclerViewAdapter(private var itemList: List<IRowObject?>?) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     protected val VIEW_TYPE_ITEM = 0
     protected val VIEW_TYPE_LOADING = 1

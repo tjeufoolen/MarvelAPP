@@ -4,6 +4,9 @@ import com.android.volley.*
 import com.android.volley.toolbox.JsonObjectRequest
 import org.json.JSONObject
 
+/*
+ * source: https://gist.github.com/akirasosa/6697643
+ */
 class CustomJsonObjectRequest(method: Int, url: String?, jsonRequest: JSONObject?, listener: Response.Listener<JSONObject>, errorListener: Response.ErrorListener?)
 : JsonObjectRequest(method, url, jsonRequest, listener, errorListener) {
 
