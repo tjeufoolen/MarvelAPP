@@ -9,6 +9,8 @@ import android.widget.TextView
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
+import androidx.core.content.res.ResourcesCompat
+import androidx.core.graphics.drawable.toBitmap
 import androidx.core.view.GravityCompat
 import androidx.core.view.get
 import androidx.drawerlayout.widget.DrawerLayout
@@ -69,7 +71,12 @@ class MainActivity : AppCompatActivity() {
 
         // Set default account (placeholder)
         if (account == null) {
-            account = Account(1, "Avans Gebruiker", "info@avans.nl")
+            account = Account(
+                1,
+                "Avans Gebruiker",
+                "info@avans.nl",
+                ResourcesCompat.getDrawable(resources, R.drawable.groku, null)?.toBitmap()
+            )
         }
 
         // Setup drawer navigation
@@ -106,6 +113,7 @@ class MainActivity : AppCompatActivity() {
 
             name.text = account?.name
             email.text = account?.email
+            picture.setImageBitmap(account?.image)
         }
     }
 

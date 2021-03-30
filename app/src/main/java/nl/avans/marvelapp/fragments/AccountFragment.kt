@@ -1,19 +1,31 @@
 package nl.avans.marvelapp.fragments
 
+import android.app.Activity.RESULT_OK
 import android.app.Notification
+import android.content.Intent
+import android.graphics.Bitmap
+import android.graphics.ImageDecoder
 import android.os.Bundle
+import android.provider.MediaStore
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
+import androidx.core.graphics.decodeBitmap
+import androidx.core.graphics.drawable.toBitmap
 import androidx.fragment.app.Fragment
 import nl.avans.marvelapp.MainActivity
 import nl.avans.marvelapp.R
 import nl.avans.marvelapp.services.NotificationService
+import java.io.IOException
 
 class AccountFragment : Fragment() {
+
+    companion object {
+        private const val SELECT_IMAGE_REQUEST_CODE: Int = 1
+    }
 
     private lateinit var notificationChannelData: NotificationService.ChannelData
     private var notificationId: Int = -1
@@ -40,7 +52,7 @@ class AccountFragment : Fragment() {
 
         // Handle select image click
         view.findViewById<Button>(R.id.bSelectImage).setOnClickListener {
-            onSelectImage(view)
+            onSelectImage()
         }
 
         // Handle update account details click
@@ -56,19 +68,47 @@ class AccountFragment : Fragment() {
 
         name.setText(MainActivity.account?.name)
         email.setText(MainActivity.account?.email)
+        picture.setImageBitmap(MainActivity.account?.image)
     }
 
-    private fun onSelectImage(view: View) {
-        TODO("Not yet implemented")
+    private fun onSelectImage() {
+        val pickImage = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
+        startActivityForResult(pickImage, SELECT_IMAGE_REQUEST_CODE)
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if (requestCode == SELECT_IMAGE_REQUEST_CODE && resultCode == RESULT_OK) {
+            val uri = data?.data
+            try {
+                updateImageView(
+                    ImageDecoder.decodeBitmap(
+                        ImageDecoder.createSource(
+                            requireActivity().contentResolver,
+                            uri!!
+                        )
+                    )
+                )
+            } catch(e: IOException) {
+                e.printStackTrace()
+            }
+        }
+    }
+
+    private fun updateImageView(bitmap: Bitmap) {
+        view?.findViewById<ImageView>(R.id.ivProfilePicture)?.setImageBitmap(bitmap)
     }
 
     private fun onUpdateDetails(view: View) {
-        val newName = view.findViewById<EditText>(R.id.etName).text.toString()
-        val newEmail = view.findViewById<EditText>(R.id.etEmail).text.toString()
+        val name = view.findViewById<EditText>(R.id.etName).text.toString()
+        val email = view.findViewById<EditText>(R.id.etEmail).text.toString()
+        val image = view.findViewById<ImageView>(R.id.ivProfilePicture).drawable.toBitmap()
 
         // Change account details
-        MainActivity.account?.name = newName
-        MainActivity.account?.email = newEmail
+        MainActivity.account?.name = name
+        MainActivity.account?.email = email
+        MainActivity.account?.image = image
 
         // Update views
         val activity: MainActivity = requireContext() as MainActivity
