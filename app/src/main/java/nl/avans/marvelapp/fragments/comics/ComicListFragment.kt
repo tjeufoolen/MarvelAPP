@@ -13,6 +13,9 @@ import nl.avans.marvelapp.R
 import nl.avans.marvelapp.models.Comic
 import nl.avans.marvelapp.repositories.ComicRepository
 
+/*
+ * source: https://www.journaldev.com/24041/android-recyclerview-load-more-endless-scrolling
+ */
 class ComicListFragment : Fragment() {
     interface IOnClickListener{
         fun onComicSelected(comic: Comic)

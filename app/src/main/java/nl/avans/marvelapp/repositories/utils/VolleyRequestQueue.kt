@@ -7,6 +7,7 @@ import com.android.volley.Request
 import com.android.volley.RequestQueue
 import com.android.volley.toolbox.ImageLoader
 import com.android.volley.toolbox.Volley
+
 /*
  * source: https://developer.android.com/training/volley/requestqueue
  */

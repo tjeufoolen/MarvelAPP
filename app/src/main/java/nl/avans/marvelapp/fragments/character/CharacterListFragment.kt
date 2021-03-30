@@ -13,6 +13,9 @@ import nl.avans.marvelapp.R
 import nl.avans.marvelapp.models.Character
 import nl.avans.marvelapp.repositories.CharacterRepository
 
+/*
+ * source: https://www.journaldev.com/24041/android-recyclerview-load-more-endless-scrolling
+ */
 class CharacterListFragment : Fragment() {
 
     interface IOnClickListener{
