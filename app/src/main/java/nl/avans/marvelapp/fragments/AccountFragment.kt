@@ -25,6 +25,12 @@ class AccountFragment : Fragment() {
 
     private val SELECT_IMAGE_REQUEST_CODE: Int = 1
 
+    private lateinit var nameInput: EditText
+    private lateinit var emailInput: EditText
+    private lateinit var imageView: ImageView
+    private lateinit var selectImageButton: Button
+    private lateinit var updateDetailsButton: Button
+
     private lateinit var notificationChannelData: NotificationService.ChannelData
     private var notificationId: Int = -1
 
@@ -40,33 +46,29 @@ class AccountFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         // Initialize instance variables
+        nameInput = view.findViewById(R.id.etName)
+        emailInput = view.findViewById(R.id.etEmail)
+        imageView = view.findViewById(R.id.ivProfilePicture)
+        selectImageButton = view.findViewById(R.id.bSelectImage)
+        updateDetailsButton = view.findViewById(R.id.bUpdateDetails)
+
         notificationChannelData = NotificationService.ChannelData(
             "account-update-details",
             "Managing account details"
         )
 
         // Initialize account details
-        initializeAccountDetails(view)
+        initializeAccountDetails()
 
-        // Handle select image click
-        view.findViewById<Button>(R.id.bSelectImage).setOnClickListener {
-            onSelectImage()
-        }
-
-        // Handle update account details click
-        view.findViewById<Button>(R.id.bUpdateDetails).setOnClickListener {
-            onUpdateDetails(view)
-        }
+        // Handle click events
+        selectImageButton.setOnClickListener { onSelectImage() }
+        updateDetailsButton.setOnClickListener { onUpdateDetails(view) }
     }
 
-    private fun initializeAccountDetails(view: View) {
-        val name = view.findViewById<EditText>(R.id.etName)
-        val email = view.findViewById<EditText>(R.id.etEmail)
-        val picture = view.findViewById<ImageView>(R.id.ivProfilePicture)
-
-        name.setText(MainActivity.account?.name)
-        email.setText(MainActivity.account?.email)
-        picture.setImageBitmap(MainActivity.account?.image)
+    private fun initializeAccountDetails() {
+        nameInput.setText(MainActivity.account?.name)
+        emailInput.setText(MainActivity.account?.email)
+        imageView.setImageBitmap(MainActivity.account?.image)
     }
 
     private fun onSelectImage() {
@@ -95,18 +97,14 @@ class AccountFragment : Fragment() {
     }
 
     private fun updateImageView(bitmap: Bitmap) {
-        view?.findViewById<ImageView>(R.id.ivProfilePicture)?.setImageBitmap(bitmap)
+        imageView.setImageBitmap(bitmap)
     }
 
     private fun onUpdateDetails(view: View) {
-        val name = view.findViewById<EditText>(R.id.etName).text.toString()
-        val email = view.findViewById<EditText>(R.id.etEmail).text.toString()
-        val image = view.findViewById<ImageView>(R.id.ivProfilePicture).drawable.toBitmap()
-
         // Change account details
-        MainActivity.account?.name = name
-        MainActivity.account?.email = email
-        MainActivity.account?.image = image
+        MainActivity.account?.name = nameInput.text.toString()
+        MainActivity.account?.email = emailInput.text.toString()
+        MainActivity.account?.image = imageView.drawable.toBitmap()
 
         // Update views
         val activity: MainActivity = requireContext() as MainActivity
