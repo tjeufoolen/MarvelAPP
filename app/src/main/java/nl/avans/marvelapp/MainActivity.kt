@@ -5,7 +5,6 @@ import android.content.ContextWrapper
 import android.os.Bundle
 import androidx.preference.PreferenceManager
 import android.view.MenuItem
-import android.view.View
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
@@ -14,7 +13,6 @@ import androidx.core.view.get
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
-import com.google.android.material.bottomnavigation.BottomNavigationItemView
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationView
 import nl.avans.marvelapp.fragments.CharactersFragment
@@ -22,7 +20,6 @@ import nl.avans.marvelapp.fragments.ComicsFragment
 import nl.avans.marvelapp.fragments.SettingsFragment
 import nl.avans.marvelapp.utils.ContextUtils
 import java.util.*
-
 
 class MainActivity : AppCompatActivity() {
 
@@ -86,14 +83,6 @@ class MainActivity : AppCompatActivity() {
             setCurrentFragment(it)
             setActiveNavigationItemColor(it)
             true
-        }
-    }
-
-    private fun setActiveNavigationItemColor(selected: MenuItem) {
-        // Clear old
-        val view = findViewById<BottomNavigationView>(R.id.bnvNavigationBar)
-        for (i in 0 until view.menu.size()) {
-            view.menu.getItem(i).isChecked = false
         }
     }
     
