@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="characters_nav_text">Caracteres</string>
+    <string name="comics_nav_text">Historietas</string>
+    <string name="settings_nav_text">Ajustes</string>
+    <string name="general_header">General</string>
+    <string name="language_title">Idioma</string>
+    <string name="account_nav_text">Cuenta</string>
+    <string name="navigation_drawer_close">Cerrar el cajón de navegación</string>
+    <string name="navigation_drawer_open">Abrir cajón de navegación</string>
+</resources>

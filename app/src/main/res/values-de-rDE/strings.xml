@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="characters_nav_text">Figuren</string>
+    <string name="comics_nav_text">Comics</string>
+    <string name="settings_nav_text">Einstellungen</string>
+    <string name="general_header">Allgemeines</string>
+    <string name="language_title">Sprache</string>
+    <string name="account_nav_text">Konto</string>
+    <string name="navigation_drawer_close">Navigationsschublade schließen</string>
+    <string name="navigation_drawer_open">" Navigationsschublade öffnen"</string>
+</resources>

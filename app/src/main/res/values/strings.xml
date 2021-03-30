@@ -1,11 +1,19 @@
 <resources>
-    <string name="app_name">MarvelAPP</string>
+    <string name="app_name" translatable="false">MarvelAPP</string>
+
+    <string name="generic_default_text">default placeholder text</string>
 
     <!-- Bottom navigation bar -->
-    <string name="characters_bottom_nav_text">Characters</string>
-    <string name="comics_bottom_nav_text">Comics</string>
-    <string name="settings_bottom_nav_text">Settings</string>
-    <string name="generic_default_text">default placeholder text</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="characters_nav_text">Characters</string>
+    <string name="comics_nav_text">Comics</string>
+    <string name="settings_nav_text">Settings</string>
+
+    <!-- Drawer navigation -->
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <!-- Preferences -->
+    <string name="general_header">General</string>
+    <string name="language_title">Language</string>
+    <string name="account_nav_text">Account</string>
 </resources>

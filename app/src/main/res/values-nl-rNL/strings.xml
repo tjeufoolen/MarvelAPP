@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="characters_nav_text">Karakters</string>
+    <string name="comics_nav_text">Strips</string>
+    <string name="settings_nav_text">Instellingen</string>
+    <string name="general_header">Algemeen</string>
+    <string name="language_title">Taal</string>
+    <string name="account_nav_text">Account</string>
+    <string name="navigation_drawer_open">Open de navigatielade</string>
+    <string name="navigation_drawer_close">Sluit de navigatielade</string>
+</resources>
