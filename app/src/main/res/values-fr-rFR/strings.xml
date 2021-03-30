@@ -8,4 +8,12 @@
     <string name="account_nav_text">Compte</string>
     <string name="navigation_drawer_open">Ouvrir le tiroir de navigation</string>
     <string name="navigation_drawer_close">" Fermer le panneau de navigation"</string>
+    <string name="name_header">Nom</string>
+    <string name="name_input_hint">Entrez votre nom</string>
+    <string name="email_header">Adresse e-mail</string>
+    <string name="email_input_hint">Entrez votre adresse email</string>
+    <string name="manage_account_details_description">Gérez les détails de votre compte</string>
+    <string name="account_profile_picture_header">" Image de profil"</string>
+    <string name="select_account_profile_picture_button_text">Sélectionnez une image</string>
+    <string name="update_account_details_button_text">Mettre à jour les détails</string>
 </resources>

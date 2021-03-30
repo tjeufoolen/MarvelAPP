@@ -16,4 +16,11 @@
         android:icon="@drawable/ic_settings"
         android:title="@string/settings_nav_text"/>
 
+    <!-- invisible item -->
+    <item
+        android:id="@+id/iInvisible"
+        android:visible="false"
+        android:icon="@drawable/ic_settings"
+        android:title="" />
+
 </menu>

@@ -4,7 +4,6 @@ import android.content.Context
 import android.content.ContextWrapper
 import android.os.Bundle
 import android.view.MenuItem
-import android.view.View
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
@@ -13,9 +12,9 @@ import androidx.core.view.get
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import androidx.preference.PreferenceManager
-import com.google.android.material.bottomnavigation.BottomNavigationItemView
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationView
+import nl.avans.marvelapp.fragments.AccountFragment
 import nl.avans.marvelapp.fragments.CharactersFragment
 import nl.avans.marvelapp.fragments.ComicsFragment
 import nl.avans.marvelapp.fragments.SettingsFragment
@@ -36,6 +35,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var charactersFragment: CharactersFragment
     private lateinit var comicsFragment: ComicsFragment
     private lateinit var settingsFragment: SettingsFragment
+    private lateinit var accountFragment: AccountFragment
 
     override fun attachBaseContext(newBase: Context?) {
         val localeToSwitchTo = Locale(PreferenceManager.getDefaultSharedPreferences(newBase)
@@ -56,6 +56,7 @@ class MainActivity : AppCompatActivity() {
         charactersFragment = CharactersFragment()
         comicsFragment = ComicsFragment()
         settingsFragment = SettingsFragment()
+        accountFragment = AccountFragment()
 
         // Set custom action bar
         setSupportActionBar(toolbar)
@@ -92,6 +93,7 @@ class MainActivity : AppCompatActivity() {
             R.id.iCharacters -> setCurrentFragment(charactersFragment)
             R.id.iComics -> setCurrentFragment(comicsFragment)
             R.id.iSettings -> setCurrentFragment(settingsFragment)
+            R.id.iAccount -> setCurrentFragment(accountFragment)
         }
     }
 
@@ -117,11 +119,14 @@ class MainActivity : AppCompatActivity() {
         // Set current
         if (fromBottomNav) {
             selected.isChecked = true
+            return
         }
-        else when (currentFragment) {
+
+        when (currentFragment) {
             is CharactersFragment -> bottomNavigationView.menu[0].isChecked = true
             is ComicsFragment ->     bottomNavigationView.menu[1].isChecked = true
             is SettingsFragment ->   bottomNavigationView.menu[2].isChecked = true
+            else ->                  bottomNavigationView.menu[3].isChecked = true
         }
     }
 

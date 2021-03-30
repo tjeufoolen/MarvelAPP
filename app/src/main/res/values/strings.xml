@@ -14,4 +14,16 @@
     <string name="general_header">General</string>
     <string name="language_title">Language</string>
     <string name="account_nav_text">Account</string>
+
+    <!-- Account -->
+    <string name="update_account_details_button_text">Update details</string>
+    <string name="select_account_profile_picture_button_text">Select image</string>
+    <string name="account_profile_picture_header">Profile picture</string>
+    <string name="manage_account_details_description">Manage your account details</string>
+
+    <!-- Input fields -->
+    <string name="email_input_hint">Enter your email...</string>
+    <string name="email_header">E-mailadress</string>
+    <string name="name_input_hint">Enter your name...</string>
+    <string name="name_header">Name</string>
 </resources>

@@ -9,7 +9,7 @@
 
     <item android:title="@string/general_header">
         <menu>
-            <item android:id="@+id/iMyAccount"
+            <item android:id="@+id/iAccount"
                 android:icon="@drawable/ic_my_account"
                 android:title="@string/account_nav_text"/>
             <item android:id="@+id/iSettings"
