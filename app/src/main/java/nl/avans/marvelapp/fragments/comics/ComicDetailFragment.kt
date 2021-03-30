@@ -50,8 +50,8 @@ class ComicDetailFragment : Fragment() {
         val photoView = view.findViewById<NetworkImageView>(R.id.nivComicDetailPhoto)
         val imgUrl = comic?.thumbnail?.url
         val imgLoader = VolleyRequestQueue.getInstance(view.context).imageLoader
-        photoView.setDefaultImageResId(R.drawable.ic_comics_black)
-        photoView.setErrorImageResId(R.drawable.ic_comics_black)
+        photoView.setDefaultImageResId(R.drawable.loading)
+        photoView.setErrorImageResId(R.drawable.error)
         photoView.setImageUrl(imgUrl, imgLoader)
     }
     private fun setDescription(description: String?){
