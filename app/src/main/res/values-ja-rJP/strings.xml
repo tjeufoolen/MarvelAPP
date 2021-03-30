@@ -8,5 +8,5 @@
     <string name="account_nav_text">" アカウント"</string>
     <string name="navigation_drawer_open">ナビゲーションドロワーを開く</string>
     <string name="navigation_drawer_close">ナビゲーションドロワーを閉じる</string>
-    <string name="character_description_unavailable">説明はありません</string>
+    <string name="description_unavailable">説明はありません</string>
 </resources>

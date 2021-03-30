@@ -7,8 +7,20 @@ import nl.avans.marvelapp.fragments.interfaces.IRowObject
 @Parcelize
 data class Comic(
     val id: Int,
-    val title: String
+    val title: String,
+    val thumbnail: ComicThumbnail,
+    val description: String?
 ) : Parcelable, IRowObject {
+
+    @Parcelize
+    data class ComicThumbnail(
+        val path: String,
+        val extension: String
+    ) : Parcelable {
+        val url: String
+            get() = ("$path.$extension").replace("http://", "https://")
+    }
+
     override fun getRowTitle(): String {
         return title
     }

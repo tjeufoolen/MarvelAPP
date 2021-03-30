@@ -1,20 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.ComicsFragment">
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:text="Comics" />
-
-    </RelativeLayout>
-
-</FrameLayout>
+    android:orientation="horizontal">
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fcvComicList"
+        android:name="nl.avans.marvelapp.fragments.comics.ComicListFragment"
+        android:layout_width="0px"
+        android:layout_height="match_parent"
+        android:layout_weight="1" />
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fcvComicDetails"
+        android:name="nl.avans.marvelapp.fragments.comics.ComicDetailFragment"
+        android:layout_width="0px"
+        android:layout_height="match_parent"
+        android:layout_weight="1" />
+</LinearLayout>

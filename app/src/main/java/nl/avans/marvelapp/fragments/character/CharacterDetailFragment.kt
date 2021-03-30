@@ -54,7 +54,7 @@ class CharacterDetailFragment : Fragment() {
             return
         }
 
-        textView?.text = context?.resources?.getString(R.string.character_description_unavailable)
+        textView?.text = context?.resources?.getString(R.string.description_unavailable)
     }
 
     companion object{

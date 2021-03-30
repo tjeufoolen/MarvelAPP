@@ -3,19 +3,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="fragments.character.CharacterDetailFragment">
+    tools:context="fragments.comics.ComicDetailFragment">
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/svCharacterDetailArea">
+        android:id="@+id/svComicDetailArea">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:padding="16dp">
             <TextView
-                android:id="@+id/tvCharacterDetailName"
+                android:id="@+id/tvComicDetailName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/generic_default_text"
@@ -23,7 +23,7 @@
                 android:textSize="30sp" />
 
             <TextView
-                android:id="@+id/tvCharacterDetailDescription"
+                android:id="@+id/tvComicDetailDescription"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAlignment="center"
@@ -32,7 +32,7 @@
                 android:paddingBottom="8dp"/>
 
             <com.android.volley.toolbox.NetworkImageView
-                android:id="@+id/nivCharacterDetailPhoto"
+                android:id="@+id/nivComicDetailPhoto"
                 android:adjustViewBounds="true"
                 android:scaleType="fitCenter"
                 android:layout_width="match_parent"
