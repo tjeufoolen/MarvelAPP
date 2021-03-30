@@ -10,4 +10,16 @@
     <string name="navigation_drawer_close">ナビゲーションドロワーを閉じる</string>
     <string name="description_unavailable">説明はありません</string>
     <string name="amount_of_pages">ページ数</string>
+    <string name="name_header">名前</string>
+    <string name="name_input_hint">あなたの名前を入力してください</string>
+    <string name="email_header">電子メールアドレス</string>
+    <string name="email_input_hint">メールアドレスを入力してください</string>
+    <string name="manage_account_details_description">アカウントの詳細を管理する</string>
+    <string name="account_profile_picture_header">プロフィールの写真</string>
+    <string name="select_account_profile_picture_button_text">画像を選択</string>
+    <string name="update_account_details_button_text">詳細を更新</string>
+    <string name="character_description_unavailable">説明はありません</string>
+    <string name="open_camera_button_text">オープンカメラ</string>
+    <string name="validation_not_everything_filled_in">保存する前にすべてのフィールドに入力してください</string>
+    <string name="account_details_updated_notification_text">アカウントの詳細が更新されました。</string>
 </resources>

@@ -11,7 +11,6 @@ import nl.avans.marvelapp.fragments.character.CharacterDetailFragment
 import nl.avans.marvelapp.fragments.character.CharacterListFragment
 import nl.avans.marvelapp.models.Character
 
-
 class CharactersFragment : Fragment(), CharacterListFragment.IOnClickListener {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_characters, container, false)

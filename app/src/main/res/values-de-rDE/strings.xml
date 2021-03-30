@@ -10,4 +10,16 @@
     <string name="navigation_drawer_open">" Navigationsschublade öffnen"</string>
     <string name="description_unavailable">Beschreibung ist nicht verfügbar</string>
     <string name="amount_of_pages">Seiten</string>
+    <string name="name_header">Name</string>
+    <string name="name_input_hint">Gib deinen Namen ein</string>
+    <string name="email_header">E-Mail-Addresse</string>
+    <string name="email_input_hint">Geben Sie ihre E-Mailadresse ein</string>
+    <string name="manage_account_details_description">Verwalten Sie Ihre Kontodaten</string>
+    <string name="account_profile_picture_header">Profilbild</string>
+    <string name="select_account_profile_picture_button_text">Bild auswählen</string>
+    <string name="update_account_details_button_text">Details aktualisieren</string>
+    <string name="character_description_unavailable">Beschreibung ist nicht verfügbar</string>
+    <string name="open_camera_button_text">Kamera öffnen</string>
+    <string name="validation_not_everything_filled_in">Bitte füllen Sie vor dem Speichern alle Felder aus</string>
+    <string name="account_details_updated_notification_text">Ihre Kontodaten wurden aktualisiert!</string>
 </resources>
