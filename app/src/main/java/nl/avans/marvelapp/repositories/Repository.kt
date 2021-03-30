@@ -5,8 +5,8 @@ import android.util.Log
 import com.android.volley.DefaultRetryPolicy
 import com.android.volley.Request
 import com.android.volley.Response
-import com.android.volley.toolbox.JsonObjectRequest
 import nl.avans.marvelapp.R
+import nl.avans.marvelapp.repositories.utils.CustomJsonObjectRequest
 import nl.avans.marvelapp.repositories.utils.VolleyRequestQueue
 import org.json.JSONObject
 import java.math.BigInteger
@@ -40,7 +40,7 @@ abstract class Repository<T> constructor(private val context: Context, private v
     // region Helpers
     private fun executeRequest(endpoint: String = "", queryParams: Map<String, String>? = null, callback: Response.Listener<JSONObject>) {
         VolleyRequestQueue.getInstance(context).addToRequestQueue(
-            JsonObjectRequest(Request.Method.GET, createRequestUrl(endpoint, queryParams), null, callback,
+            CustomJsonObjectRequest(Request.Method.GET, createRequestUrl(endpoint, queryParams), null, callback,
                 {
                     // Frontend should ignore the fact that a request can go wrong and handle this
                     // already in its own way. However, we keep logging the error so that we as
