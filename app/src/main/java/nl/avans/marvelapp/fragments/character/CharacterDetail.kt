@@ -40,6 +40,7 @@ class CharacterDetail : Fragment() {
 
     private fun setFields(view: View){
         view.findViewById<TextView>(R.id.tvCharacterDetailName)?.text = character?.name
+        view.findViewById<TextView>(R.id.tvCharacterDetailDescription)?.text = character?.description
         setImage(view)
     }
 
@@ -47,8 +48,8 @@ class CharacterDetail : Fragment() {
         val photoView = view.findViewById<NetworkImageView>(R.id.nivCharacterDetailPhoto)
         val imgUrl = character?.thumbnail?.url
         val imgLoader = VolleyRequestQueue.getInstance(view.context).imageLoader
-        photoView.setDefaultImageResId(R.drawable.ic_launcher_background)
-        photoView.setErrorImageResId(R.drawable.ic_launcher_foreground)
+        photoView.setDefaultImageResId(R.drawable.ic_characters_black)
+        photoView.setErrorImageResId(R.drawable.ic_characters_black)
         photoView.setImageUrl(character?.thumbnail?.url, imgLoader)
     }
 

@@ -38,15 +38,6 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-//    override fun onBackPressed() {
-//        val backstackentrycount = supportFragmentManager.backStackEntryCount
-//
-//        if (supportFragmentManager.backStackEntryCount > 0) {
-//            supportFragmentManager.popBackStack();
-//        } else {
-//            super.onBackPressed();
-//        }
-//    }
     override fun onBackPressed() {
         val fm = supportFragmentManager
         if (onBackPressed(fm)) {

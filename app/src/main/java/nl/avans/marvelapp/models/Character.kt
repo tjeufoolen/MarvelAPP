@@ -17,7 +17,7 @@ data class Character(
         val extension: String
     ) : Parcelable {
         val url: String
-            get() = "$path.$extension"
+            get() = ("$path.$extension").replace("http://", "https://")
     }
 
     @Parcelize
