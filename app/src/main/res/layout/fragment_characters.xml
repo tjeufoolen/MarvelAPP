@@ -11,7 +11,7 @@
         android:layout_weight="1" />
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fcvCharacterDetails"
-        android:name="nl.avans.marvelapp.fragments.character.CharacterDetail"
+        android:name="nl.avans.marvelapp.fragments.character.CharacterDetailFragment"
         android:layout_width="0px"
         android:layout_height="match_parent"
         android:layout_weight="1" />

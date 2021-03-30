@@ -8,6 +8,8 @@
     <string name="account_nav_text">Compte</string>
     <string name="navigation_drawer_open">Ouvrir le tiroir de navigation</string>
     <string name="navigation_drawer_close">" Fermer le panneau de navigation"</string>
+    <string name="description_unavailable">La description n\'est pas disponible</string>
+    <string name="amount_of_pages">nombre de pages</string>
     <string name="name_header">Nom</string>
     <string name="name_input_hint">Entrez votre nom</string>
     <string name="email_header">Adresse e-mail</string>

@@ -8,6 +8,8 @@
     <string name="account_nav_text">Account</string>
     <string name="navigation_drawer_open">Open de navigatielade</string>
     <string name="navigation_drawer_close">Sluit de navigatielade</string>
+    <string name="description_unavailable">Beschrijving niet beschikbaar</string>
+    <string name="amount_of_pages">Aantal pagina\'s</string>
     <string name="name_header">Naam</string>
     <string name="name_input_hint">Vul uw naam in</string>
     <string name="email_input_hint">Vul uw email in</string>

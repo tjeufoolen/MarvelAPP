@@ -8,6 +8,8 @@
     <string name="account_nav_text">" アカウント"</string>
     <string name="navigation_drawer_open">ナビゲーションドロワーを開く</string>
     <string name="navigation_drawer_close">ナビゲーションドロワーを閉じる</string>
+    <string name="description_unavailable">説明はありません</string>
+    <string name="amount_of_pages">ページ数</string>
     <string name="name_header">名前</string>
     <string name="name_input_hint">あなたの名前を入力してください</string>
     <string name="email_header">電子メールアドレス</string>

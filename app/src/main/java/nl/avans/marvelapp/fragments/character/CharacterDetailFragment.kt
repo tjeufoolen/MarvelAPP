@@ -13,7 +13,7 @@ import nl.avans.marvelapp.repositories.utils.VolleyRequestQueue
 
 private const val CHARACTER_ARGUMENT = "character"
 
-class CharacterDetail : Fragment() {
+class CharacterDetailFragment : Fragment() {
     private var character: Character? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -54,12 +54,12 @@ class CharacterDetail : Fragment() {
             return
         }
 
-        textView?.text = context?.resources?.getString(R.string.character_description_unavailable)
+        textView?.text = context?.resources?.getString(R.string.description_unavailable)
     }
 
     companion object{
         fun newInstance(character: Character) =
-            CharacterDetail().apply {
+            CharacterDetailFragment().apply {
                 arguments = Bundle().apply {
                     putParcelable(CHARACTER_ARGUMENT, character)
                 }

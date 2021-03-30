@@ -32,5 +32,10 @@
     <string name="name_header">Name</string>
 
     <!-- Character Details -->
-    <string name="character_description_unavailable">Description Unavailable</string>
+    <string name="description_unavailable">Description unavailable</string>
+
+    <!-- Comic Details-->
+    <string name="EAN" translatable="false">EAN</string>
+    <string name="ISBN" translatable="false">ISBN</string>
+    <string name="amount_of_pages">Amount of pages</string>
 </resources>

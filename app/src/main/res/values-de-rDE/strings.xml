@@ -8,6 +8,8 @@
     <string name="account_nav_text">Konto</string>
     <string name="navigation_drawer_close">Navigationsschublade schließen</string>
     <string name="navigation_drawer_open">" Navigationsschublade öffnen"</string>
+    <string name="description_unavailable">Beschreibung ist nicht verfügbar</string>
+    <string name="amount_of_pages">Seiten</string>
     <string name="name_header">Name</string>
     <string name="name_input_hint">Gib deinen Namen ein</string>
     <string name="email_header">E-Mail-Addresse</string>
