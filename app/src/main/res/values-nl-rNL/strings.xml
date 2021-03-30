@@ -8,5 +8,16 @@
     <string name="account_nav_text">Account</string>
     <string name="navigation_drawer_open">Open de navigatielade</string>
     <string name="navigation_drawer_close">Sluit de navigatielade</string>
+    <string name="name_header">Naam</string>
+    <string name="name_input_hint">Vul uw naam in</string>
+    <string name="email_input_hint">Vul uw email in</string>
+    <string name="email_header">E-mail address</string>
+    <string name="manage_account_details_description">Beheer uw accountgegevens</string>
+    <string name="account_profile_picture_header">Profiel foto</string>
+    <string name="select_account_profile_picture_button_text">Selecteer afbeelding</string>
+    <string name="update_account_details_button_text">Update details</string>
     <string name="character_description_unavailable">Beschrijving niet beschikbaar</string>
+    <string name="open_camera_button_text">Open Camera</string>
+    <string name="validation_not_everything_filled_in">Gelieve alle velden in te vullen voordat u opslaat</string>
+    <string name="account_details_updated_notification_text">Uw accountgegevens zijn bijgewerkt!</string>
 </resources>

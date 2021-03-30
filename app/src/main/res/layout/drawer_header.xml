@@ -8,22 +8,24 @@
     android:padding="20dp">
 
     <ImageView
+        android:id="@+id/ivHeaderProfilePicture"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:src="@drawable/groku"/>
 
     <TextView
+        android:id="@+id/tvHeaderAccountName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Test Gebruiker"
         android:textColor="@color/text"
         android:textSize="16sp"
         android:textStyle="bold" />
+
     <TextView
+        android:id="@+id/tvHeaderAccountEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="test@student.avans.nl"
-        android:textSize="8sp"
+        android:textSize="12sp"
         android:textColor="@color/text"/>
 
 
