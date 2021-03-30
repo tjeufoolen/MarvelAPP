@@ -1,7 +1,6 @@
 package nl.avans.marvelapp.repositories
 
 import android.content.Context
-import android.util.Log
 import com.beust.klaxon.Klaxon
 import nl.avans.marvelapp.models.Comic
 import org.json.JSONObject
