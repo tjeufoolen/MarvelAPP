@@ -2,6 +2,8 @@
     <string name="app_name" translatable="false">MarvelAPP</string>
     <string name="generic_default_text" translatable="false">default placeholder text</string>
     <string name="validation_not_everything_filled_in">Please fill in all fields before saving</string>
+    <string name="share">Share</string>
+    <string name="no_shareable_app_installed">No app installed that can share this!</string>
 
     <!-- Navigation -->
     <string name="characters_nav_text">Characters</string>
@@ -10,6 +12,7 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="sensors_nav_text">Sensors</string>
+    <string name="extra_header">Extras</string>
 
     <!-- Preferences -->
     <string name="general_header">General</string>
@@ -42,11 +45,15 @@
 
     <!-- Character Details -->
     <string name="description_unavailable">Description unavailable</string>
+    <string name="share_character_greeting">Hey there, look at this awesome new character I found</string>
+    <string name="share_character_mention_description">And here a description:</string>
+    <string name="share_character_look_at_him">You can take a look at him here:</string>
 
     <!-- Comic Details-->
     <string name="EAN" translatable="false">EAN</string>
     <string name="ISBN" translatable="false">ISBN</string>
     <string name="amount_of_pages">Amount of pages</string>
-    <string name="extra_header">Extras</string>
-    <string name="character_description_unavailable">Character description unavailable</string>
+    <string name="share_comic_greeting">Hey there! Look at this awesome comic I found:</string>
+    <string name="share_comic_mention_description">And this is what its about:</string>
+    <string name="share_comic_look_at_it">You can take a look at it here:</string>
 </resources>
