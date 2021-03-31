@@ -28,4 +28,8 @@
     <string name="sensors_pressure_header">Druck</string>
     <string name="sensors_light_header">Licht</string>
     <string name="sensors_ambient_temperature_header">Umgebungstemperatur</string>
+    <string name="sensors_latitude_header">Breite</string>
+    <string name="sensors_longitude_header">Längengrad</string>
+    <string name="sensors_location_text">Ort</string>
+    <string name="sensors_fetch_location_button_text">Ort abrufen</string>
 </resources>

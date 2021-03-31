@@ -28,4 +28,8 @@
     <string name="sensors_pressure_header">Druk</string>
     <string name="sensors_light_header">Licht</string>
     <string name="sensors_ambient_temperature_header">Omgevingstemperatuur</string>
+    <string name="sensors_latitude_header">Breedtegraad</string>
+    <string name="sensors_longitude_header">Lengtegraad</string>
+    <string name="sensors_location_text">Locatie</string>
+    <string name="sensors_fetch_location_button_text">Locatie ophalen</string>
 </resources>

@@ -29,6 +29,10 @@
     <string name="sensors_pressure_header">Pressure</string>
     <string name="sensors_light_header">Light</string>
     <string name="sensors_ambient_temperature_header">Ambient Temperature</string>
+    <string name="sensors_location_text">Location</string>
+    <string name="sensors_latitude_header">Latitude</string>
+    <string name="sensors_longitude_header">Longitude</string>
+    <string name="sensors_fetch_location_button_text">Fetch Location</string>
 
     <!-- Input fields -->
     <string name="email_input_hint">Enter your email...</string>

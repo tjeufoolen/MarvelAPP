@@ -28,4 +28,8 @@
     <string name="sensors_pressure_header">Presión</string>
     <string name="sensors_light_header">Ligero</string>
     <string name="sensors_ambient_temperature_header">Temperatura ambiente</string>
+    <string name="sensors_latitude_header">Latitud</string>
+    <string name="sensors_longitude_header">Longitud</string>
+    <string name="sensors_location_text">Ubicación</string>
+    <string name="sensors_fetch_location_button_text">Obtener ubicación</string>
 </resources>
