@@ -44,9 +44,7 @@ abstract class RecyclerViewAdapter(private var itemList: List<IRowObject?>?) : R
         var tvItem: TextView = itemView.findViewById(R.id.tvItem)
     }
 
-    protected inner class LoadingViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        var progressBar: ProgressBar = itemView.findViewById(R.id.progressBar)
-    }
+    protected inner class LoadingViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
 
     protected fun showLoadingView(viewHolder: LoadingViewHolder, position: Int) {
         val pos = position + viewHolder.adapterPosition
