@@ -49,6 +49,8 @@ abstract class RecyclerViewAdapter(private var itemList: List<IRowObject?>?) : R
     }
 
     protected fun showLoadingView(viewHolder: LoadingViewHolder, position: Int) {
+        val pos = position + viewHolder.adapterPosition
+        pos + 1
         //ProgressBar would be displayed
     }
 

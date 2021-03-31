@@ -81,7 +81,7 @@ class CharacterDetailFragment : Fragment() {
         try {
             requireActivity().startActivity(intent)
         } catch (ex: ActivityNotFoundException) {
-            Toast.makeText(context, "No app installed that can share this!", Toast.LENGTH_SHORT)
+            Toast.makeText(context, context?.resources?.getString(R.string.no_shareable_app_installed), Toast.LENGTH_SHORT)
                 .show()
         }
     }
@@ -89,16 +89,16 @@ class CharacterDetailFragment : Fragment() {
     private fun generateShareDescription() :String{
         var string = ""
 
-        val shareGreeting = context?.resources?.getString(R.string.share_greeting)
-        val shareMentionDescription = context?.resources?.getString(R.string.share_mention_description)
-        val shareLookAtHim = context?.resources?.getString(R.string.share_look_at_him)
+        val shareGreeting = context?.resources?.getString(R.string.share_character_greeting)
+        val shareMentionDescription = context?.resources?.getString(R.string.share_character_mention_description)
+        val shareLookAtHim = context?.resources?.getString(R.string.share_character_look_at_him)
 
         string += "$shareGreeting\n"
         string += character?.name
         string += "\n\n"
 
         if(!character?.description.isNullOrEmpty()){
-            string += "$shareMentionDescription And here a description:\n"
+            string += "$shareMentionDescription\n"
             string += character?.description
             string += "\n\n"
         }

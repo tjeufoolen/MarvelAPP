@@ -38,7 +38,12 @@
     <string name="EAN" translatable="false">EAN</string>
     <string name="ISBN" translatable="false">ISBN</string>
     <string name="amount_of_pages">Amount of pages</string>
-    <string name="share_greeting">Hey there, look at this awesome new character I found</string>
-    <string name="share_mention_description">And here a description</string>
-    <string name="share_look_at_him">You can take a look at him here:</string>
+    <string name="share_character_greeting">Hey there, look at this awesome new character I found</string>
+    <string name="share_character_mention_description">And here a description:</string>
+    <string name="share_character_look_at_him">You can take a look at him here:</string>
+    <string name="share">Share</string>
+    <string name="no_shareable_app_installed">No app installed that can share this!</string>
+    <string name="share_comic_greeting">Hey there! Look at this awesome comic I found:</string>
+    <string name="share_comic_mention_description">And this is what its about:</string>
+    <string name="share_comic_look_at_it">You can take a look at it here:</string>
 </resources>

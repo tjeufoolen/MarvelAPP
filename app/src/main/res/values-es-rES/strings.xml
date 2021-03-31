@@ -18,8 +18,15 @@
     <string name="account_profile_picture_header">" Foto de perfil"</string>
     <string name="select_account_profile_picture_button_text">Seleccionar imagen</string>
     <string name="update_account_details_button_text">Actualizar detalles</string>
-    <string name="character_description_unavailable">La descripción no está disponible</string>
     <string name="open_camera_button_text">Cámara abierta</string>
     <string name="validation_not_everything_filled_in">Complete todos los campos antes de guardar</string>
     <string name="account_details_updated_notification_text">Los detalles de su cuenta han sido actualizados.</string>
+    <string name="share_character_greeting">Hola, mira este nuevo personaje increíble que encontré</string>
+    <string name="share_character_mention_description">Y aqui una descripcion:</string>
+    <string name="share_character_look_at_him">Puedes echarle un vistazo aquí:</string>
+    <string name="share">Cuota</string>
+    <string name="no_shareable_app_installed">¡No hay ninguna aplicación instalada que pueda compartir esto!</string>
+    <string name="share_comic_greeting">¡Hola! Mira este increíble cómic que encontré:</string>
+    <string name="share_comic_mention_description">And this is what its about:</string>
+    <string name="share_comic_look_at_it">Puedes echarle un vistazo aquí:</string>
 </resources>
