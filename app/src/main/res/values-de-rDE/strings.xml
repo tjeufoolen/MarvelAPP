@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="characters_nav_text">Figuren</string>
+    <string name="comics_nav_text">Comics</string>
+    <string name="settings_nav_text">Einstellungen</string>
+    <string name="general_header">Allgemeines</string>
+    <string name="language_title">Sprache</string>
+    <string name="account_nav_text">Konto</string>
+    <string name="navigation_drawer_close">Navigationsschublade schließen</string>
+    <string name="navigation_drawer_open">" Navigationsschublade öffnen"</string>
+    <string name="description_unavailable">Beschreibung ist nicht verfügbar</string>
+    <string name="amount_of_pages">Seiten</string>
+    <string name="name_header">Name</string>
+    <string name="name_input_hint">Gib deinen Namen ein</string>
+    <string name="email_header">E-Mail-Addresse</string>
+    <string name="email_input_hint">Geben Sie ihre E-Mailadresse ein</string>
+    <string name="manage_account_details_description">Verwalten Sie Ihre Kontodaten</string>
+    <string name="account_profile_picture_header">Profilbild</string>
+    <string name="select_account_profile_picture_button_text">Bild auswählen</string>
+    <string name="update_account_details_button_text">Details aktualisieren</string>
+    <string name="open_camera_button_text">Kamera öffnen</string>
+    <string name="validation_not_everything_filled_in">Bitte füllen Sie vor dem Speichern alle Felder aus</string>
+    <string name="account_details_updated_notification_text">Ihre Kontodaten wurden aktualisiert!</string>
+    <string name="share_character_greeting">Hey, schau dir diesen fantastischen neuen Charakter an, den ich gefunden habe</string>
+    <string name="share_character_mention_description">Und hier eine Beschreibung:</string>
+    <string name="share_character_look_at_him">Sie können ihn hier ansehen:</string>
+    <string name="share">Teilen</string>
+    <string name="no_shareable_app_installed">Keine App installiert, die dies teilen kann!</string>
+    <string name="share_comic_greeting">Sie da! Schau dir diesen fantastischen Comic an, den ich gefunden habe:</string>
+    <string name="share_comic_mention_description">Und darum geht es:</string>
+    <string name="share_comic_look_at_it">Sie können es hier ansehen:</string>
+    <string name="extra_header">Extras</string>
+    <string name="sensors_nav_text">Sensoren</string>
+    <string name="sensors_humidity_header">Feuchtigkeit</string>
+    <string name="sensors_pressure_header">Druck</string>
+    <string name="sensors_light_header">Licht</string>
+    <string name="sensors_ambient_temperature_header">Umgebungstemperatur</string>
+    <string name="sensors_latitude_header">Breite</string>
+    <string name="sensors_longitude_header">Längengrad</string>
+    <string name="sensors_location_text">Ort</string>
+    <string name="sensors_fetch_location_button_text">Ort abrufen</string>
+</resources>

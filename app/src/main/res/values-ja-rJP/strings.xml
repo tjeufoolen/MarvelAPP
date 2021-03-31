@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="characters_nav_text">" キャラクター"</string>
+    <string name="comics_nav_text">" 漫画"</string>
+    <string name="settings_nav_text">設定</string>
+    <string name="general_header">一般</string>
+    <string name="language_title">" 言語"</string>
+    <string name="account_nav_text">" アカウント"</string>
+    <string name="navigation_drawer_open">ナビゲーションドロワーを開く</string>
+    <string name="navigation_drawer_close">ナビゲーションドロワーを閉じる</string>
+    <string name="description_unavailable">説明はありません</string>
+    <string name="amount_of_pages">ページ数</string>
+    <string name="name_header">名前</string>
+    <string name="name_input_hint">あなたの名前を入力してください</string>
+    <string name="email_header">電子メールアドレス</string>
+    <string name="email_input_hint">メールアドレスを入力してください</string>
+    <string name="manage_account_details_description">アカウントの詳細を管理する</string>
+    <string name="account_profile_picture_header">プロフィールの写真</string>
+    <string name="select_account_profile_picture_button_text">画像を選択</string>
+    <string name="update_account_details_button_text">詳細を更新</string>
+    <string name="open_camera_button_text">オープンカメラ</string>
+    <string name="validation_not_everything_filled_in">保存する前にすべてのフィールドに入力してください</string>
+    <string name="account_details_updated_notification_text">アカウントの詳細が更新されました。</string>
+    <string name="share_character_greeting">ねえ、私が見つけたこの素晴らしい新しいキャラクターを見てください</string>
+    <string name="share_character_mention_description">" そしてここに説明:"</string>
+    <string name="share_character_look_at_him">" あなたはここで彼を見ることができます："</string>
+    <string name="share">共有</string>
+    <string name="no_shareable_app_installed">これを共有できるアプリはインストールされていません！</string>
+    <string name="share_comic_greeting">ちょっと、そこ！私が見つけたこの素晴らしい漫画を見てください：</string>
+    <string name="share_comic_mention_description">そして、これはその内容です：</string>
+    <string name="share_comic_look_at_it">あなたはここでそれを見ることができます：</string>
+    <string name="extra_header">エキストラ</string>
+    <string name="sensors_nav_text">センサー</string>
+    <string name="sensors_humidity_header">湿度</string>
+    <string name="sensors_pressure_header">圧力</string>
+    <string name="sensors_light_header">光</string>
+    <string name="sensors_ambient_temperature_header">周囲温度</string>
+    <string name="sensors_latitude_header">緯度</string>
+    <string name="sensors_longitude_header">経度</string>
+    <string name="sensors_location_text">ロケーション</string>
+    <string name="sensors_fetch_location_button_text">フェッチ場所</string>
+</resources>

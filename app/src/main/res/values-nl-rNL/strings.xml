@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="characters_nav_text">Karakters</string>
+    <string name="comics_nav_text">Strips</string>
+    <string name="settings_nav_text">Instellingen</string>
+    <string name="general_header">Algemeen</string>
+    <string name="language_title">Taal</string>
+    <string name="account_nav_text">Account</string>
+    <string name="navigation_drawer_open">Open de navigatielade</string>
+    <string name="navigation_drawer_close">Sluit de navigatielade</string>
+    <string name="description_unavailable">Beschrijving niet beschikbaar</string>
+    <string name="amount_of_pages">Aantal pagina\'s</string>
+    <string name="name_header">Naam</string>
+    <string name="name_input_hint">Vul uw naam in</string>
+    <string name="email_input_hint">Vul uw email in</string>
+    <string name="email_header">E-mail address</string>
+    <string name="manage_account_details_description">Beheer uw accountgegevens</string>
+    <string name="account_profile_picture_header">Profiel foto</string>
+    <string name="select_account_profile_picture_button_text">Selecteer afbeelding</string>
+    <string name="update_account_details_button_text">Update details</string>
+    <string name="open_camera_button_text">Open Camera</string>
+    <string name="validation_not_everything_filled_in">Gelieve alle velden in te vullen voordat u opslaat</string>
+    <string name="account_details_updated_notification_text">Uw accountgegevens zijn bijgewerkt!</string>
+    <string name="share_character_greeting">Hey, kijk eens naar dit geweldige nieuwe personage dat ik heb gevonden</string>
+    <string name="share_character_mention_description">En hier een beschrijving:</string>
+    <string name="share_character_look_at_him">Je kunt hem hier bekijken:</string>
+    <string name="share">Delen</string>
+    <string name="no_shareable_app_installed">Er is geen app geïnstalleerd die dit kan delen!</string>
+    <string name="share_comic_greeting">Hey! Kijk eens naar deze geweldige strip die ik heb gevonden:</string>
+    <string name="share_comic_mention_description">En dit is waar het over gaat:</string>
+    <string name="share_comic_look_at_it">Je kunt het hier bekijken:</string>
+    <string name="extra_header">Extra\'s</string>
+    <string name="sensors_nav_text">Sensoren</string>
+    <string name="sensors_humidity_header">Vochtigheid</string>
+    <string name="sensors_pressure_header">Druk</string>
+    <string name="sensors_light_header">Licht</string>
+    <string name="sensors_ambient_temperature_header">Omgevingstemperatuur</string>
+    <string name="sensors_latitude_header">Breedtegraad</string>
+    <string name="sensors_longitude_header">Lengtegraad</string>
+    <string name="sensors_location_text">Locatie</string>
+    <string name="sensors_fetch_location_button_text">Locatie ophalen</string>
+</resources>
