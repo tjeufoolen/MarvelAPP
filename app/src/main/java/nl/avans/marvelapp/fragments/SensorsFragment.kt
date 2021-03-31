@@ -10,7 +10,6 @@ import android.hardware.SensorManager
 import android.location.LocationManager
 import android.os.Bundle
 import android.os.Looper
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -196,18 +195,6 @@ class SensorsFragment : Fragment(), SensorEventListener {
         val locationManager = view?.context?.getSystemService(Context.LOCATION_SERVICE) as LocationManager
         return locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)
             || locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER)
-    }
-
-    override fun onRequestPermissionsResult(
-        requestCode: Int,
-        permissions: Array<out String>,
-        grantResults: IntArray
-    ) {
-        if (requestCode == PERMISSION_ID) {
-            if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                Log.d("Debug", "You have the permission")
-            }
-        }
     }
 
 }
