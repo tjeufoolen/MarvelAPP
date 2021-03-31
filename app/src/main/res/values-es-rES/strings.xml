@@ -22,4 +22,14 @@
     <string name="open_camera_button_text">Cámara abierta</string>
     <string name="validation_not_everything_filled_in">Complete todos los campos antes de guardar</string>
     <string name="account_details_updated_notification_text">Los detalles de su cuenta han sido actualizados.</string>
+    <string name="extra_header">Extras</string>
+    <string name="sensors_nav_text">Sensores</string>
+    <string name="sensors_humidity_header">Humedad</string>
+    <string name="sensors_pressure_header">Presión</string>
+    <string name="sensors_light_header">Ligero</string>
+    <string name="sensors_ambient_temperature_header">Temperatura ambiente</string>
+    <string name="sensors_latitude_header">Latitud</string>
+    <string name="sensors_longitude_header">Longitud</string>
+    <string name="sensors_location_text">Ubicación</string>
+    <string name="sensors_fetch_location_button_text">Obtener ubicación</string>
 </resources>

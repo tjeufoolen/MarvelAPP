@@ -7,6 +7,14 @@
         android:icon="@drawable/ic_comics"
         android:title="@string/comics_nav_text"/>
 
+    <item android:title="@string/extra_header">
+        <menu>
+            <item android:id="@+id/iSensors"
+                android:icon="@drawable/ic_sensors"
+                android:title="@string/sensors_nav_text"/>
+        </menu>
+    </item>
+
     <item android:title="@string/general_header">
         <menu>
             <item android:id="@+id/iAccount"

@@ -19,10 +19,7 @@ import androidx.preference.PreferenceManager
 import androidx.fragment.app.FragmentManager
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationView
-import nl.avans.marvelapp.fragments.AccountFragment
-import nl.avans.marvelapp.fragments.CharactersFragment
-import nl.avans.marvelapp.fragments.ComicsFragment
-import nl.avans.marvelapp.fragments.SettingsFragment
+import nl.avans.marvelapp.fragments.*
 import nl.avans.marvelapp.models.Account
 import nl.avans.marvelapp.utils.ContextUtils
 import java.util.*
@@ -41,6 +38,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var toolbar: Toolbar
     private lateinit var charactersFragment: CharactersFragment
     private lateinit var comicsFragment: ComicsFragment
+    private lateinit var sensorsFragment: SensorsFragment
     private lateinit var settingsFragment: SettingsFragment
     private lateinit var accountFragment: AccountFragment
 
@@ -63,6 +61,7 @@ class MainActivity : AppCompatActivity() {
         toolbar = findViewById(R.id.tAppBar)
         charactersFragment = CharactersFragment()
         comicsFragment = ComicsFragment()
+        sensorsFragment = SensorsFragment()
         settingsFragment = SettingsFragment()
         accountFragment = AccountFragment()
 
@@ -133,6 +132,7 @@ class MainActivity : AppCompatActivity() {
         when(it.itemId) {
             R.id.iCharacters -> setCurrentFragment(charactersFragment)
             R.id.iComics -> setCurrentFragment(comicsFragment)
+            R.id.iSensors -> setCurrentFragment(sensorsFragment)
             R.id.iSettings -> setCurrentFragment(settingsFragment)
             R.id.iAccount -> setCurrentFragment(accountFragment)
         }
