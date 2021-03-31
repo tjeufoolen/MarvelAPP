@@ -29,4 +29,14 @@
     <string name="share_comic_greeting">Salut! Regardez cette bande dessinée géniale que j\'ai trouvée:</string>
     <string name="share_comic_mention_description">Et voici de quoi il s\'agit:</string>
     <string name="share_comic_look_at_it">Vous pouvez y jeter un œil ici:</string>
+    <string name="extra_header">Suppléments</string>
+    <string name="sensors_nav_text">Capteurs</string>
+    <string name="sensors_humidity_header">Humidité</string>
+    <string name="sensors_pressure_header">Pression</string>
+    <string name="sensors_light_header">Légère</string>
+    <string name="sensors_ambient_temperature_header">Temperatura ambiente</string>
+    <string name="sensors_latitude_header">Latitude</string>
+    <string name="sensors_longitude_header">Longitude</string>
+    <string name="sensors_location_text">Emplacement</string>
+    <string name="sensors_fetch_location_button_text">Récupérer l\'emplacement</string>
 </resources>

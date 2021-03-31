@@ -29,4 +29,14 @@
     <string name="share_comic_greeting">ちょっと、そこ！私が見つけたこの素晴らしい漫画を見てください：</string>
     <string name="share_comic_mention_description">そして、これはその内容です：</string>
     <string name="share_comic_look_at_it">あなたはここでそれを見ることができます：</string>
+    <string name="extra_header">エキストラ</string>
+    <string name="sensors_nav_text">センサー</string>
+    <string name="sensors_humidity_header">湿度</string>
+    <string name="sensors_pressure_header">圧力</string>
+    <string name="sensors_light_header">光</string>
+    <string name="sensors_ambient_temperature_header">周囲温度</string>
+    <string name="sensors_latitude_header">緯度</string>
+    <string name="sensors_longitude_header">経度</string>
+    <string name="sensors_location_text">ロケーション</string>
+    <string name="sensors_fetch_location_button_text">フェッチ場所</string>
 </resources>

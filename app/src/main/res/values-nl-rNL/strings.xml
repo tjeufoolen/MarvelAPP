@@ -29,4 +29,14 @@
     <string name="share_comic_greeting">Hey! Kijk eens naar deze geweldige strip die ik heb gevonden:</string>
     <string name="share_comic_mention_description">En dit is waar het over gaat:</string>
     <string name="share_comic_look_at_it">Je kunt het hier bekijken:</string>
+    <string name="extra_header">Extra\'s</string>
+    <string name="sensors_nav_text">Sensoren</string>
+    <string name="sensors_humidity_header">Vochtigheid</string>
+    <string name="sensors_pressure_header">Druk</string>
+    <string name="sensors_light_header">Licht</string>
+    <string name="sensors_ambient_temperature_header">Omgevingstemperatuur</string>
+    <string name="sensors_latitude_header">Breedtegraad</string>
+    <string name="sensors_longitude_header">Lengtegraad</string>
+    <string name="sensors_location_text">Locatie</string>
+    <string name="sensors_fetch_location_button_text">Locatie ophalen</string>
 </resources>
