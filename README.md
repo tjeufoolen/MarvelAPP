@@ -1,5 +1,5 @@
-# MarvelAPP
-Kotlin android app build for the MBDANDR assessment
+# KOTLIN_MarvelAPP
+Our first android app written in Kotlin. This app uses the Marvel API to demonstrate service usage.
 
 ## Getting Started
 1. Clone this project
