@@ -1,5 +1,5 @@
-# KOTLIN_MarvelAPP
-Our first android app written in Kotlin. This app uses the Marvel API to demonstrate service usage.
+# MarvelAPP
+An android app written in Kotlin which uses the Marvel API to demonstrate service usage.
 
 ## Getting Started
 1. Clone this project
